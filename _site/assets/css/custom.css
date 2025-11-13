@@ -478,20 +478,6 @@ ul, ol {
 }
 
 
-
-
-/* === === === === === === === === === === === === ===  === */
-/* === Frosted default + multiple matte accent variants === */
-:root {
-  --blob-brick-coral: lightcoral;
-  --blob-brick-ivory: #f4ede2;
-  --blob-brick-poppy: #ff4a2d;
-  --blob-frost-bg: rgba(255, 255, 255, 0.55);
-  --blob-frost-border: rgba(255, 255, 255, 0.75);
-  --blob-frost-tint: rgba(0, 51, 255, 0.05);
-  --blob-radius: 16px;
-}
-
 /* Core container */
 .blobbed {
   position: relative;
@@ -840,13 +826,6 @@ html:not(.menu-open)::before{ opacity: 0; }
 }
 
 
-
-/* Rules / borders match printed ink */
-
-.home-section-highlight {
-  border-color: var(--rule);
-}
-
 /* Optional: faint texture illusion — “paper depth” */
 body::before {
   content: "";
@@ -891,16 +870,12 @@ body::before {
   gap: var(--space-xl);
   margin-top: calc(var(--space-xxl) + 6rem);
   margin-bottom: var(--space-xxl);
-  margin-block: var(--section-xxl);
+  margin-block: var(--section-gap);
   box-sizing: border-box;
 }
 
 
 /* Desktop only: full-bleed */
-@media (min-width: 721px){
-  .features{ width: 100vw; }
-}
-
 @media (min-width: 721px){
   .features{
     position: relative;
@@ -913,7 +888,6 @@ body::before {
     backdrop-filter: blur(3px) saturate(1.1);
     border-radius: 12px;
   }
-
 }
 
 /* Mobile: keep inside the measure */
