@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="{{ site.lang | default: 'en-US' }}">
+<head>
+  {%- seo -%}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <!-- theme css removed on purpose -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="{{ '/assets/img/favicon.ico' | relative_url }}">
+  <!-- Font Awesome Free CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+ integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+  crossorigin="anonymous"
+ referrerpolicy="no-referrer" />
+  {%- include head-custom.html -%}
+</head>
+<body>
+  <div class="wrapper">
+          <header class="site-header">
+            <!-- Menu toggle (always visible) -->
+            <button class="menu-toggle" aria-expanded="false" aria-controls="menu-panel" aria-label="Open menu">
+              <span class="menu-toggle__icon" aria-hidden="true">☰</span>
+            </button>
+
+            <!-- Collapsible panel: logo + nav -->
+            <div id="menu-panel" class="menu-panel" hidden>
+  <div class="brand">
+    <a href="{{ '/' | relative_url }}" class="brand-link">
+      <img src="{{ '/assets/img/logo11.png' | relative_url }}" alt="Athanasios logo" class="brand-logo">
+    </a>
+  </div>
+
+  <!-- Scrollable nav body -->
+  <nav class="custom-nav menu-body" aria-label="Primary">
+    <div class="group">
+      <span class="title">.clients</span>
+      <div class="items">
+        <a href="#">Irish Rule of Law International (IRLI)</a>
+        <a href="#">Lahore Biennale Foundation</a>
+        <a href="https://www.dathprojects.com" target="_blank" rel="noopener">dath projects</a>
+        <a href="#">Ferozsons Laboratories</a>
+        <a href="#">w-w-w.io</a>
+        <a href="#">Documena</a>
+        <a href="#">Diana Manesi</a>
+        <a href="#">Magma</a>
+        <div class="group" style="padding-top: 10px;">
+          <span class="title">.a bit about me</span>
+          <div class="items">
+            <a
+              href="https://www.linkedin.com/in/athanasios-anagnostopoulos-334a78107/"
+              target="_blank"
+              rel="noopener"
+              class="social-linkedin"
+              aria-label="LinkedIn (opens in new tab)"
+              title="LinkedIn"
+            >
+              <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+              <span class="sr-only">LinkedIn</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Sticky footer inside the drawer -->
+  <footer class="menu-foot">
+    <p>All rights reserved © Athanasios Anagnostopoulos {{ 'now' | date: '%Y' }}</p>
+    <!-- optional: add email -->
+    <!-- <p><a href="mailto:hello@athanasios.co">hello@athanasios.co</a></p> -->
+  </footer>
+</div>
+          </header>
+<!-- RIGHT COLUMN CONTENT -->
+    <section>
+      {{ content }}
+    </section>
+<!-- RIGHT COLUMN FOOTER -->
+    <footer class="site-foot">
+
+      <!--<p><small>Project by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a> on GitHub Pages, theme orderedlist</small></p>-->
+    </footer>
+  </div>
+  {% include lightbox.html %}
+  <script src="{{ '/assets/js/scale.fix.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/menu-toggle.js' | relative_url }}"></script>
+</body>
+</html>

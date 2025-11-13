@@ -1,0 +1,102 @@
+<script>
+(function(){
+  const $$ = (sel, ctx=document) => Array.from(ctx.querySelectorAll(sel));
+  const byGroup = (name) => $$(`[data-lb-group="${name}"][data-lightbox]`);
+
+  // Build lightbox DOM once
+  const lb = document.createElement('div');
+  lb.className = 'lb-backdrop';
+  lb.setAttribute('role','dialog');
+  lb.setAttribute('aria-modal','true');
+  lb.innerHTML = `
+    <div class="lb-stage" aria-live="polite">
+      <div class="lb-imgwrap">
+        <img class="lb-img" alt="">
+        <button class="lb-btn lb-prev" aria-label="Previous"><span class="lb-icon"></span></button>
+        <button class="lb-btn lb-next" aria-label="Next"><span class="lb-icon"></span></button>
+        <button class="lb-btn lb-close" aria-label="Close"><span class="lb-icon"></span></button>
+      </div>
+      <div class="lb-caption"></div>
+    </div>`;
+  document.body.appendChild(lb);
+
+  const elImg = lb.querySelector('.lb-img');
+  const elCap = lb.querySelector('.lb-caption');
+  const btnPrev = lb.querySelector('.lb-prev');
+  const btnNext = lb.querySelector('.lb-next');
+  const btnClose = lb.querySelector('.lb-close');
+
+  let current = null, group = [], index = 0, lastFocus = null;
+
+  function open(item){
+    lastFocus = document.activeElement;
+    const groupName = item.getAttribute('data-lb-group') || '__single__';
+    group = groupName === '__single__' ? [item] : byGroup(groupName);
+    index = group.indexOf(item);
+    update();
+    lb.classList.add('is-open');
+    setArrows();
+    btnClose.focus();
+    document.documentElement.style.overflow = 'hidden';
+  }
+
+  function close(){
+    lb.classList.remove('is-open');
+    document.documentElement.style.overflow = '';
+    if (lastFocus) lastFocus.focus();
+  }
+
+  function setArrows(){
+    const many = group.length > 1;
+    btnPrev.disabled = btnNext.disabled = !many;
+  }
+
+  function update(){
+    current = group[index];
+    const src = current.getAttribute('data-lb-src') || current.getAttribute('src');
+    const alt = current.getAttribute('alt') || '';
+    elImg.src = src;
+    elImg.alt = alt;
+    elCap.textContent = alt;
+  }
+
+  function next(){ if(group.length>1){ index = (index+1)%group.length; update(); } }
+  function prev(){ if(group.length>1){ index = (index-1+group.length)%group.length; update(); } }
+
+  document.addEventListener('click', (e)=>{
+    const t = e.target.closest('[data-lightbox]');
+    if(!t) return;
+    e.preventDefault();
+    open(t);
+  });
+
+  btnClose.addEventListener('click', close);
+  btnNext.addEventListener('click', next);
+  btnPrev.addEventListener('click', prev);
+
+  lb.addEventListener('click', (e)=>{ if(e.target === lb) close(); });
+
+  document.addEventListener('keydown', (e)=>{
+    if(!lb.classList.contains('is-open')) return;
+    if(e.key === 'Escape') close();
+    else if(e.key === 'ArrowRight') next();
+    else if(e.key === 'ArrowLeft') prev();
+  });
+
+  let sx=0, sy=0, dx=0, dy=0;
+  lb.addEventListener('touchstart', (e)=>{ const t=e.touches[0]; sx=t.clientX; sy=t.clientY; }, {passive:true});
+  lb.addEventListener('touchmove',  (e)=>{ const t=e.touches[0]; dx=t.clientX-sx; dy=t.clientY-sy; }, {passive:true});
+  lb.addEventListener('touchend',   ()=>{
+    if(Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) (dx<0?next:prev)();
+    dx=dy=0;
+  });
+
+  lb.addEventListener('keydown', (e)=>{
+    if(!lb.classList.contains('is-open') || e.key!=='Tab') return;
+    const focusables = lb.querySelectorAll('button, [tabindex]:not([tabindex="-1"])');
+    const first = focusables[0], last = focusables[focusables.length-1];
+    if(e.shiftKey && document.activeElement===first){ e.preventDefault(); last.focus(); }
+    else if(!e.shiftKey && document.activeElement===last){ e.preventDefault(); first.focus(); }
+  });
+})();
+</script>
