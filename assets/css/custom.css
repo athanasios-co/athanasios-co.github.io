@@ -719,7 +719,53 @@ img[loading="lazy"]{ filter: blur(0.001px); } /* Safari decode nudge */
 }
 .menu-toggle:active { transform: none; }
 .menu-toggle:hover { box-shadow: 0 6px 22px rgba(0,0,0,.08); transform: translateY(-1px); background: #f9f9f9; }
-.menu-toggle__icon { font-size: 1.4rem; line-height: 1; pointer-events: none; }
+
+
+.menu-toggle__icon {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Top dot (centered) */
+.menu-toggle__icon::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  background: var(--color-text);
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Bottom-left dot */
+.menu-toggle__icon::after {
+  content: "";
+  width: 6px;
+  height: 6px;
+  background: var(--color-text);
+  border-radius: 50%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+/* Bottom-right dot (using the span itself as background) */
+.menu-toggle__icon {
+  background:
+    radial-gradient(circle, var(--color-text) 3px, transparent 3px);
+  background-position: right bottom;
+  background-repeat: no-repeat;
+  background-size: 6px 6px;
+}
+
+
 
 /* Blur overlay placeholder (no dim) */
 html.menu-open::before{
