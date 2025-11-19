@@ -11,10 +11,10 @@ title: Digital Marketing Strategy
   <h1 class="blurb">athanasios.co</h1>
   <p class="blurb">
     <small>
-    <u>Strategic Online Marketing</u>,
-    <u>Search Engine Optimisation (SEO)</u>,
-    <u>Generative Engine Optimisation (GEO)</u>,
-    <u>Digital & Print Publishing Consultancy</u>
+    Online Marketing Strategy |
+    Search Engine Optimisation (SEO) |
+    Generative Engine Optimisation (GEO) |
+    Digital & Print Publishing Consultancy |
   </small></p>
 </div>
 <hr class="hr-shadow">
