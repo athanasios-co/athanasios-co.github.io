@@ -33,6 +33,8 @@
 
 
 
+<!-- Google Search Console Verification -->
+<meta name="google-site-verification" content="eCdXRM0LONfo9JdEUxbJfJna6X8vLhRdouZcpENFLro" />
 <!-- You can set your favicon here -->
 <!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
 
@@ -105,10 +107,10 @@
   <h1 class="blurb">athanasios.co</h1>
   <p class="blurb">
     <small>
-    Online Marketing Strategy |
+    Online Strategy |
     Search Engine Optimisation (SEO) |
-    Generative Engine Optimisation (GEO) |
-    Digital &amp; Print Publishing Consultancy |
+    AI Engine Optimisation (AIEO) |
+    Publishing Consultancy |
   </small></p>
 </div>
 <hr class="hr-shadow" />
@@ -368,6 +370,64 @@
     if(e.shiftKey && document.activeElement===first){ e.preventDefault(); last.focus(); }
     else if(!e.shiftKey && document.activeElement===last){ e.preventDefault(); first.focus(); }
   });
+})();
+</script>
+
+  <!-- Cookie Consent Banner -->
+<div class="cookie-consent" id="cookieConsent" hidden>
+  <div class="cookie-consent__content">
+    <p class="cookie-consent__text">
+      We use cookies to analyze site traffic and improve your experience.
+      <a href="/privacy" class="cookie-consent__link">Learn more</a>
+    </p>
+    <div class="cookie-consent__buttons">
+      <button class="cookie-btn cookie-btn--accept" id="acceptCookies">Accept</button>
+      <button class="cookie-btn cookie-btn--decline" id="declineCookies">Decline</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const consent = localStorage.getItem('cookie-consent');
+  const banner = document.getElementById('cookieConsent');
+  const acceptBtn = document.getElementById('acceptCookies');
+  const declineBtn = document.getElementById('declineCookies');
+
+  if (!consent) {
+    banner.removeAttribute('hidden');
+  } else if (consent === 'accepted') {
+    loadAnalytics();
+  }
+
+  acceptBtn.addEventListener('click', function() {
+    localStorage.setItem('cookie-consent', 'accepted');
+    banner.setAttribute('hidden', '');
+    loadAnalytics();
+  });
+
+  declineBtn.addEventListener('click', function() {
+    localStorage.setItem('cookie-consent', 'declined');
+    banner.setAttribute('hidden', '');
+  });
+
+  function loadAnalytics() {
+    const script1 = document.createElement('script');
+    script1.async = true;
+    script1.src = 'https://www.googletagmanager.com/gtag/js?id=G-8L0L24LT34';
+    document.head.appendChild(script1);
+
+    const script2 = document.createElement('script');
+    script2.textContent = `
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-8L0L24LT34', {
+        'anonymize_ip': true
+      });
+    `;
+    document.head.appendChild(script2);
+  }
 })();
 </script>
 
