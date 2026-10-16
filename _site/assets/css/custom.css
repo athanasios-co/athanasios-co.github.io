@@ -1207,7 +1207,11 @@ body::before {
   line-height: .8;
   letter-spacing: -.04em;
   white-space: nowrap;
-  color: rgba(40, 36, 32, .08);
+  /* cut-out / hollowed look: recessed fill + inner shadow top-left, highlight bottom-right */
+  color: #e2dfd9;
+  text-shadow:
+    -3px -3px 4px rgba(40,36,32,.22),
+     3px  3px 3px rgba(255,255,255,.85);
   pointer-events: none;
   user-select: none;
 }
