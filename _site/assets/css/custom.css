@@ -1321,7 +1321,7 @@ body::before {
   /* tag line right under the description (the tab's lower body is hidden) */
   margin-top: 0;
   padding-top: var(--space-sm);
-  border-top: 2px dotted #E3120B;   /* red dotted divider between paragraph and tag */
+  border-top: 3px dotted #E3120B;   /* red dotted divider between paragraph and tag */
   padding-bottom: var(--space-md);
   font-family: var(--font-base);
   font-size: .54rem;   /* 75% of previous */
