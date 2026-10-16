@@ -1265,7 +1265,7 @@ body::before {
 .client-tile__name {
   font-family: var(--font-accent);
   font-weight: 500;
-  font-size: clamp(1.15rem, 0.95rem + 0.7vw, 1.6rem);
+  font-size: clamp(.86rem, .71rem + .53vw, 1.2rem);   /* 75% of previous */
   line-height: 1.25;
   overflow-wrap: break-word;
 }
@@ -1273,7 +1273,7 @@ body::before {
   margin-top: var(--space-xs);
   margin-bottom: var(--space-md);   /* keep clear of the red footer */
   font-family: var(--font-accent);   /* same serif as the tab title */
-  font-size: .95rem;
+  font-size: .71rem;   /* 75% of previous */
   line-height: 1.5;
   color: rgba(0,0,0,.72);
 }
@@ -1282,7 +1282,7 @@ body::before {
   margin-top: auto;
   padding-bottom: var(--space-sm);
   font-family: var(--font-base);
-  font-size: .72rem;
+  font-size: .54rem;   /* 75% of previous */
   letter-spacing: .04em;
   text-transform: uppercase;
   color: rgba(0,0,0,.6);
