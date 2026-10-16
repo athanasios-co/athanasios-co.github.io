@@ -1200,13 +1200,8 @@ body::before {
 }
 .client-band > .client-grid { position: relative; }
 .client-tiles > h3 {
-  /* red tab, same shape as the footer tabs */
-  display: table;               /* shrink to the text, stay centred */
   margin: 0 auto var(--space-md);
-  padding: 14px 34px 10px 26px;
-  border-top: 3px solid #E3120B;
-  border-right: 1px solid #E3120B;
-  border-radius: 20px 32px 0 0;
+  color: var(--color-accent);   /* same blue as the icons */
   font-family: var(--font-accent);
   font-weight: 600;
   font-size: 1.15rem;
@@ -1241,8 +1236,7 @@ body::before {
 .client-grid > li:nth-child(10){z-index:10}
 .client-grid > li:nth-child(11){z-index:13}
 .client-grid > li:nth-child(12){z-index:12}
-.client-grid > li:hover,
-.client-grid > li:focus-within { z-index: 20; }
+/* hover keeps the stacking: the hovered tab stays under the tab below */
 .client-grid { --tab-pad-y: var(--space-md); --tab-pad-x: var(--space-lg); --tab-overlap: 0px; --row-overlap: 22px;   /* each row's tops cover this much of the row above */ padding-bottom: var(--row-overlap); }
 /* rows tuck under the next row, like tiers of dividers */
 .client-grid > li { margin-bottom: calc(-1 * var(--row-overlap)); }
