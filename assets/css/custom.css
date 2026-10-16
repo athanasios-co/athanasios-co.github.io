@@ -1194,21 +1194,20 @@ body::before {
   overflow: hidden;            /* crops the giant aA at the edges */
   isolation: isolate;
 }
-/* tilted rows of "aA" behind the tiles */
+/* one huge, straight "aA" behind the tiles, cropped by the band */
 .client-band__mark {
   position: absolute;
   z-index: -1;
   top: 50%;
   left: 50%;
-  display: flex;
-  flex-direction: column;
-  transform: translate(-50%, -50%) rotate(-14deg);
+  transform: translate(-50%, -50%);
   font-family: var(--font-accent);
   font-weight: 600;
-  font-size: clamp(64px, 9vw, 150px);
-  line-height: 1;
+  font-size: clamp(420px, 72vw, 1300px);
+  line-height: .8;
+  letter-spacing: -.04em;
   white-space: nowrap;
-  color: rgba(60, 40, 20, .07);
+  color: rgba(60, 40, 20, .08);
   pointer-events: none;
   user-select: none;
 }
