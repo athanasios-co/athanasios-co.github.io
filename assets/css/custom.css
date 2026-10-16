@@ -1189,6 +1189,8 @@ body::before {
   padding: var(--space-xl) var(--space-lg);
   /* darker neutral gradient with soft patches, so the frosted glass has something to blur */
   background:
+    /* notebook ruling: faint horizontal red lines every 32px */
+    repeating-linear-gradient(180deg, transparent 0 31px, rgba(227,18,11,.18) 31px 32px),
     radial-gradient(55% 75% at 15% 20%, rgba(150,142,130,.35) 0%, transparent 65%),
     radial-gradient(50% 70% at 85% 80%, rgba(120,114,106,.30) 0%, transparent 65%),
     linear-gradient(160deg, #e2ded7 0%, #d3cec6 100%);
