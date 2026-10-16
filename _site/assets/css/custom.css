@@ -1199,8 +1199,10 @@ body::before {
 }
 .client-band > .client-grid { position: relative; }
 .client-band > h3 {   /* title now sits inside the band */
-  margin: 0 auto calc(var(--space-xxl) + 72px);   /* clear space above the black back tabs (matches --back-peek) */
+  margin: 0 auto var(--space-xxl);
   color: var(--color-accent);   /* same blue as the icons */
+  position: relative;
+  z-index: 1;                   /* stays above the phones */
   font-family: var(--font-accent);
   font-weight: 600;
   font-size: 1.15rem;
@@ -1212,8 +1214,8 @@ body::before {
   flex-wrap: wrap;
   justify-content: center;
   align-items: stretch;         /* equal-height tabs on a shared baseline */
-  gap: 0 var(--col-gap);        /* room for both black back tabs */
-  max-width: min(840px, calc(100% - 2 * var(--back-out)));   /* leave room for the black back tabs */
+  gap: 0 var(--col-gap);
+  max-width: 840px;
   margin: 0 auto;
   padding: 0;
   list-style: none;
@@ -1236,30 +1238,39 @@ body::before {
 .client-grid > li:nth-child(11){z-index:13}
 .client-grid > li:nth-child(12){z-index:12}
 /* hover keeps the stacking: the hovered tab stays under the tab below */
-/* one big black back tab behind each column; peeks out above the first tab
-   and runs down under the band's bottom edge with the last row */
-.client-grid { position: relative; --back-peek: 72px; --back-out: 130px; --col-gap: calc(var(--space-xl) + 56px); --back-in: calc(var(--col-gap) / 2);   /* wide outer sides; inner edges meet in the middle */ }   /* back tab: taller and much wider than the cards */
-.client-grid::before,
-.client-grid::after {
-  content: "";
+.client-grid { position: relative; z-index: 1; --col-gap: calc(var(--space-xl) + 24px); }   /* tabs above the phones */
+
+/* four glossy black iPhone-shaped screens, twisted and turned behind the clients */
+.client-phone {
   position: absolute;
-  z-index: 0;                   /* behind every tab (tabs start at z-index 2) */
-  top: calc(-1 * var(--back-peek));
-  bottom: calc(-1 * var(--sink));
-  width: calc((100% - var(--col-gap)) / 2 + var(--back-out) + var(--back-in));
-  /* glossy screen-black: like a switched-off monitor — deep black, one soft broad reflection, crisp edge */
+  z-index: 0;
+  width: clamp(170px, 21vw, 300px);
+  aspect-ratio: 9 / 19.5;
+  border-radius: 15% / 7%;
   background:
-    linear-gradient(135deg, rgba(255,255,255,.07) 0%, rgba(255,255,255,.035) 38%, rgba(255,255,255,0) 38.5%),
-    linear-gradient(180deg, #111113 0%, #050506 100%);
+    linear-gradient(135deg, rgba(255,255,255,.08) 0%, rgba(255,255,255,.035) 40%, rgba(255,255,255,0) 40.5%),
+    linear-gradient(180deg, #111113 0%, #040405 100%);
   box-shadow:
-    0 -6px 18px rgba(0,0,0,.22),
-    inset 0 0 0 1px rgba(255,255,255,.08),
-    inset 0 1px 0 rgba(255,255,255,.22);
-  border-radius: 6px 10px 0 0;  /* much tighter corners */
+    inset 0 0 0 4px #1d1d20,                 /* phone frame */
+    inset 0 0 0 5px rgba(255,255,255,.10),   /* frame highlight */
+    0 24px 48px rgba(0,0,0,.28);
   pointer-events: none;
 }
-.client-grid::before { left: calc(-1 * var(--back-out)); }
-.client-grid::after  { right: calc(-1 * var(--back-out)); }
+.client-phone::before {                     /* dynamic-island pill */
+  content: "";
+  position: absolute;
+  top: 2.6%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30%;
+  height: 3.4%;
+  border-radius: 999px;
+  background: #000;
+}
+.client-phone--1 { left: 3%;  top: 4%;  transform: rotate(-14deg); }
+.client-phone--2 { left: 28%; top: 38%; transform: perspective(900px) rotateY(22deg) rotate(9deg); }
+.client-phone--3 { right: 24%; top: 2%; transform: perspective(900px) rotateY(-24deg) rotate(-7deg); }
+.client-phone--4 { right: 2%; top: 42%; transform: rotate(17deg); }
 .client-grid { --tab-pad-y: var(--space-lg); --tab-pad-x: var(--space-lg); --tab-overlap: 0px; --sink: 2000px;   /* every tab runs down this far; the band clips them all at its bottom edge */ }
 /* rows tuck under the next row, like tiers of dividers */
 /* organiser stack: each tab's body continues down behind the tabs below it */
@@ -1355,10 +1366,7 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
   .client-grid > li:nth-child(10){z-index:10}
   .client-grid > li:nth-child(11){z-index:11}
   .client-grid > li:nth-child(12){z-index:12}
-  /* one column: a single back tab */
-  .client-grid { --back-out: 14px; --back-in: 14px; margin-inline: var(--back-out); }   /* keep the back tab inside the band */
-  .client-grid::before { width: calc(100% + 2 * var(--back-out)); }
-  .client-grid::after { display: none; }
+  .client-phone { width: 42vw; }
   .client-grid > li { flex: 1 1 100%; }
   .client-grid { --tab-pad-y: var(--space-sm); --tab-pad-x: var(--space-sm); }
   /* larger text on phones */
