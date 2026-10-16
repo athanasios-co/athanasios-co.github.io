@@ -1182,26 +1182,28 @@ body::before {
   margin-left: calc(50% - 50vw);
   box-sizing: border-box;
   padding: var(--space-xl) var(--space-lg);
-  background: radial-gradient(120% 140% at 50% 0%, #5c2420 0%, #2c0e0b 60%, #180605 100%);
-  box-shadow: inset 0 0 80px rgba(0,0,0,.65);
+  /* aged paper tint, slightly warmer than --paper-bg */
+  background: radial-gradient(120% 140% at 50% 0%, #f1ead9 0%, #e7dcc5 60%, #dccfb4 100%);
+  box-shadow: inset 0 0 70px rgba(80,60,30,.18);
   position: relative;
   overflow: hidden;            /* crops the giant aA at the edges */
   isolation: isolate;
 }
-/* giant tilted "aA" behind the tiles */
+/* tilted rows of "aA" behind the tiles */
 .client-band__mark {
   position: absolute;
   z-index: -1;
   top: 50%;
   left: 50%;
+  display: flex;
+  flex-direction: column;
   transform: translate(-50%, -50%) rotate(-14deg);
   font-family: var(--font-accent);
   font-weight: 600;
-  font-size: clamp(420px, 72vw, 1300px);
-  line-height: .8;
-  letter-spacing: -.04em;
+  font-size: clamp(64px, 9vw, 150px);
+  line-height: 1;
   white-space: nowrap;
-  color: rgba(255, 220, 210, .16);
+  color: rgba(60, 40, 20, .07);
   pointer-events: none;
   user-select: none;
 }
@@ -1240,11 +1242,10 @@ body::before {
   padding: var(--space-md) var(--space-lg);
   border-radius: var(--blob-radius);
   border: 1px solid var(--blob-frost-border);
-  /* opacity raised vs. blobs: on dark maroon the 0.6 version reads muddy */
-  background: linear-gradient(160deg, rgba(255,255,255,0.85), rgba(235,235,235,0.6));
+  background: linear-gradient(160deg, rgba(255,255,255,0.6), rgba(230,230,230,0.3));
   backdrop-filter: blur(12px) saturate(1.1);
   -webkit-backdrop-filter: blur(12px) saturate(1.1);
-  box-shadow: 0 14px 40px rgba(0,0,0,.25), inset 0 0 60px rgba(255,255,255,.15);
+  box-shadow: 0 14px 40px rgba(0,0,0,.08), inset 0 0 60px rgba(255,255,255,.15);
   color: var(--ink);
   transition: transform .25s ease, box-shadow .25s ease, color .2s ease;
 }
@@ -1266,10 +1267,10 @@ body::before {
 a.client-tile:hover,
 a.client-tile:focus-visible {
   transform: translateY(-2px);
-  box-shadow: 0 18px 44px rgba(0,0,0,.35), inset 0 0 60px rgba(255,255,255,.2);
+  box-shadow: 0 18px 44px rgba(0,0,0,.14), inset 0 0 60px rgba(255,255,255,.2);
   color: var(--accent);
 }
-a.client-tile:focus-visible { outline: 2px solid #f3ece4; outline-offset: 3px; }
+a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 .client-tile.is-static { opacity: .7; }
 
 /* Tablet / small laptop: 2 per row */

@@ -2,7 +2,7 @@
 <section class="client-tiles" aria-labelledby="client-tiles-title">
   <h3 id="client-tiles-title">Clients</h3>
   <div class="client-band">
-    <span class="client-band__mark" aria-hidden="true">aA</span>
+    <span class="client-band__mark" aria-hidden="true">{% for i in (1..14) %}<span>aA aA aA aA aA aA aA aA aA aA aA aA</span>{% endfor %}</span>
   <ul class="client-grid">
     {%- for c in site.data.clients %}
     {%- assign meta = c.tag | default: '' -%}
