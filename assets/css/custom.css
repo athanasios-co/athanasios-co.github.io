@@ -1199,7 +1199,7 @@ body::before {
   isolation: isolate;
 }
 .client-band > .client-grid { position: relative; }
-.client-tiles > h3 {
+.client-band > h3 {   /* title now sits inside the band */
   margin: 0 auto var(--space-md);
   color: var(--color-accent);   /* same blue as the icons */
   font-family: var(--font-accent);
@@ -1237,9 +1237,27 @@ body::before {
 .client-grid > li:nth-child(11){z-index:13}
 .client-grid > li:nth-child(12){z-index:12}
 /* hover keeps the stacking: the hovered tab stays under the tab below */
-.client-grid { --tab-pad-y: var(--space-md); --tab-pad-x: var(--space-lg); --tab-overlap: 0px; --row-overlap: 22px;   /* each row's tops cover this much of the row above */ padding-bottom: var(--row-overlap); }
+/* one big black back tab behind each column; peeks out above the first tab
+   and runs down under the band's bottom edge with the last row */
+.client-grid { position: relative; --back-peek: 16px; --back-out: 14px; }   /* back tab: taller and wider than the cards */
+.client-grid::before,
+.client-grid::after {
+  content: "";
+  position: absolute;
+  z-index: 0;                   /* behind every tab (tabs start at z-index 2) */
+  top: calc(-1 * var(--back-peek));
+  bottom: calc(-1 * var(--sink));
+  width: calc((100% - var(--space-xl)) / 2 + 2 * var(--back-out));
+  background: #111;
+  border-radius: 20px 32px 0 0; /* same tab shape */
+  pointer-events: none;
+}
+.client-grid::before { left: calc(-1 * var(--back-out)); }
+.client-grid::after  { right: calc(-1 * var(--back-out)); }
+.client-grid { --tab-pad-y: var(--space-md); --tab-pad-x: var(--space-lg); --tab-overlap: 0px; --sink: 2000px;   /* every tab runs down this far; the band clips them all at its bottom edge */ }
 /* rows tuck under the next row, like tiers of dividers */
-.client-grid > li { margin-bottom: calc(-1 * var(--row-overlap)); }
+/* organiser stack: each tab's body continues down behind the tabs below it */
+.client-grid > li { margin-bottom: calc(-1 * var(--sink)); }
 
 /* same frosted glass as the site's blobs */
 .client-tile {
@@ -1252,7 +1270,7 @@ body::before {
   text-align: left;
   /* no bottom padding: the red tag footer sits flush at the bottom */
   /* bottom padding = the part hidden under the next row, so the red strip stays visible */
-  padding: var(--tab-pad-y) var(--tab-pad-x) var(--row-overlap) calc(var(--tab-pad-x) + var(--tab-overlap));
+  padding: var(--tab-pad-y) var(--tab-pad-x) calc(var(--sink) + var(--space-sm)) calc(var(--tab-pad-x) + var(--tab-overlap));
   /* tab shape: rounded top, flat bottom on a baseline */
   border-radius: 20px 32px 0 0;   /* same shape as the footer tabs */
   border: 1px solid rgba(255,255,255,.7);   /* glass edge, no red */
@@ -1260,7 +1278,7 @@ body::before {
   /* glass: clearer body + diagonal sheen + bright edges */
   background:
     linear-gradient(125deg, rgba(255,255,255,.55) 0%, rgba(255,255,255,.14) 38%, rgba(255,255,255,.06) 62%, rgba(255,255,255,.22) 100%),
-    rgba(255,255,255,.18);
+    rgba(240,238,234,.80);        /* denser frost: reads light over the black back tab */
   backdrop-filter: blur(16px) saturate(1.3);
   -webkit-backdrop-filter: blur(16px) saturate(1.3);
   /* shadow cast upward onto the tab behind, like stacked dividers */
@@ -1289,8 +1307,8 @@ body::before {
   color: rgba(0,0,0,.72);
 }
 .client-tile__meta {
-  /* plain tag line at the bottom of the tab */
-  margin-top: auto;
+  /* tag line right under the description (the tab's lower body is hidden) */
+  margin-top: 0;
   padding-bottom: var(--space-sm);
   font-family: var(--font-base);
   font-size: .54rem;   /* 75% of previous */
@@ -1305,22 +1323,17 @@ a.client-tile:focus-visible {
   opacity: 1;                   /* override the site-wide link fade */
   background:                   /* more opaque glass on hover */
     linear-gradient(125deg, rgba(255,255,255,.75) 0%, rgba(255,255,255,.45) 40%, rgba(255,255,255,.4) 60%, rgba(255,255,255,.55) 100%),
-    rgba(255,255,255,.35);
+    rgba(248,247,244,.92);
   color: var(--accent);
 }
 a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-.client-tile.is-static { opacity: .7; padding-bottom: calc(var(--tab-pad-y) + var(--row-overlap)); }
-/* last row: nothing covers it, so no hidden bottom area */
-.client-grid > li:last-child .client-tile,
-.client-grid > li:nth-last-child(2):nth-child(odd) .client-tile { padding-bottom: 0; }
-.client-grid > li:last-child .client-tile.is-static,
-.client-grid > li:nth-last-child(2):nth-child(odd) .client-tile.is-static { padding-bottom: var(--tab-pad-y); }
+.client-tile.is-static > * { opacity: .7; }   /* dim the text, not the glass (black tab behind) */
 
 /* Mobile: keep 2 columns, tighter tiles */
 @media (max-width: 600px){
   .client-band { padding: var(--space-lg) var(--space-sm); }
   /* mobile: one full-width divider per row, stacked; no sideways overlap */
-  .client-grid { --tab-overlap: 0px; --row-overlap: 14px; }
+  .client-grid { --tab-overlap: 0px; }
   /* one column: each tab sits over the one above */
   .client-grid > li:nth-child(1){z-index:1}
   .client-grid > li:nth-child(2){z-index:2}
@@ -1334,7 +1347,10 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
   .client-grid > li:nth-child(10){z-index:10}
   .client-grid > li:nth-child(11){z-index:11}
   .client-grid > li:nth-child(12){z-index:12}
-  .client-grid > li:nth-last-child(2):nth-child(odd) .client-tile:not(.is-static) { padding-bottom: var(--row-overlap); }
+  /* one column: a single back tab */
+  .client-grid { --back-out: 8px; }
+  .client-grid::before { width: calc(100% + 2 * var(--back-out)); }
+  .client-grid::after { display: none; }
   .client-grid > li { flex: 1 1 100%; }
   .client-grid { --tab-pad-y: var(--space-sm); --tab-pad-x: var(--space-sm); }
   /* larger text on phones */
