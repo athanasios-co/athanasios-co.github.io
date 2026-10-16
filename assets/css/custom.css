@@ -1200,7 +1200,7 @@ body::before {
 }
 .client-band > .client-grid { position: relative; }
 .client-band > h3 {   /* title now sits inside the band */
-  margin: 0 auto var(--space-md);
+  margin: 0 auto calc(var(--space-xl) + 16px);   /* clear space above the black back tabs */
   color: var(--color-accent);   /* same blue as the icons */
   font-family: var(--font-accent);
   font-weight: 600;
@@ -1213,14 +1213,14 @@ body::before {
   flex-wrap: wrap;
   justify-content: center;
   align-items: stretch;         /* equal-height tabs on a shared baseline */
-  gap: 0 var(--space-xl);       /* rows overlap vertically; columns breathe */
+  gap: 0 var(--col-gap);        /* room for both black back tabs */
   max-width: 840px;             /* narrower tabs, room at the sides */
   margin: 0 auto;
   padding: 0;
   list-style: none;
 }
 /* browser-tab arrangement: each tab is as wide as its title */
-.client-grid > li { flex: 0 0 calc((100% - var(--space-xl)) / 2); display: flex; position: relative; }  /* 2 per row */
+.client-grid > li { flex: 0 0 calc((100% - var(--col-gap)) / 2); display: flex; position: relative; }  /* 2 per row */
 /* overlap like binder dividers: each tab tucks over the previous one */
 .client-grid > li + li { margin-left: calc(-1 * var(--tab-overlap)); }
 /* stacking: lower rows sit over the row above; within a row the left tab is on top */
@@ -1239,7 +1239,7 @@ body::before {
 /* hover keeps the stacking: the hovered tab stays under the tab below */
 /* one big black back tab behind each column; peeks out above the first tab
    and runs down under the band's bottom edge with the last row */
-.client-grid { position: relative; --back-peek: 16px; --back-out: 14px; }   /* back tab: taller and wider than the cards */
+.client-grid { position: relative; --back-peek: 16px; --back-out: 30px; --col-gap: calc(2 * var(--back-out) + var(--space-md)); }   /* back tab: taller and much wider than the cards */
 .client-grid::before,
 .client-grid::after {
   content: "";
@@ -1247,8 +1247,19 @@ body::before {
   z-index: 0;                   /* behind every tab (tabs start at z-index 2) */
   top: calc(-1 * var(--back-peek));
   bottom: calc(-1 * var(--sink));
-  width: calc((100% - var(--space-xl)) / 2 + 2 * var(--back-out));
-  background: #111;
+  width: calc((100% - var(--col-gap)) / 2 + 2 * var(--back-out));
+  /* black glass: dark gradient + sheen + bright edges */
+  background:
+    linear-gradient(125deg, rgba(255,255,255,.14) 0%, rgba(255,255,255,.03) 35%, rgba(255,255,255,0) 60%, rgba(255,255,255,.06) 100%),
+    linear-gradient(160deg, rgba(38,38,40,.94) 0%, rgba(8,8,10,.97) 100%);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow:
+    0 -6px 18px rgba(0,0,0,.22),
+    inset 0 1px 0 rgba(255,255,255,.28),
+    inset 1px 0 0 rgba(255,255,255,.14),
+    inset -1px 0 0 rgba(255,255,255,.06),
+    inset 0 0 40px rgba(255,255,255,.04);
   border-radius: 20px 32px 0 0; /* same tab shape */
   pointer-events: none;
 }
@@ -1348,7 +1359,7 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
   .client-grid > li:nth-child(11){z-index:11}
   .client-grid > li:nth-child(12){z-index:12}
   /* one column: a single back tab */
-  .client-grid { --back-out: 8px; }
+  .client-grid { --back-out: 14px; margin-inline: var(--back-out); }   /* keep the back tab inside the band */
   .client-grid::before { width: calc(100% + 2 * var(--back-out)); }
   .client-grid::after { display: none; }
   .client-grid > li { flex: 1 1 100%; }
