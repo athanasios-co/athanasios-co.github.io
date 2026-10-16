@@ -1239,7 +1239,7 @@ body::before {
 /* hover keeps the stacking: the hovered tab stays under the tab below */
 /* one big black back tab behind each column; peeks out above the first tab
    and runs down under the band's bottom edge with the last row */
-.client-grid { position: relative; --back-peek: 16px; --back-out: 60px; --back-in: 12px; --col-gap: calc(2 * var(--back-in) + var(--space-xl));   /* wide on the outer sides, slim towards the middle */ }   /* back tab: taller and much wider than the cards */
+.client-grid { position: relative; --back-peek: 16px; --back-out: 60px; --col-gap: calc(var(--space-xl) + 24px); --back-in: calc(var(--col-gap) / 2);   /* wide outer sides; inner edges meet in the middle */ }   /* back tab: taller and much wider than the cards */
 .client-grid::before,
 .client-grid::after {
   content: "";
@@ -1265,7 +1265,7 @@ body::before {
 }
 .client-grid::before { left: calc(-1 * var(--back-out)); }
 .client-grid::after  { right: calc(-1 * var(--back-out)); }
-.client-grid { --tab-pad-y: var(--space-md); --tab-pad-x: var(--space-lg); --tab-overlap: 0px; --sink: 2000px;   /* every tab runs down this far; the band clips them all at its bottom edge */ }
+.client-grid { --tab-pad-y: var(--space-lg); --tab-pad-x: var(--space-lg); --tab-overlap: 0px; --sink: 2000px;   /* every tab runs down this far; the band clips them all at its bottom edge */ }
 /* rows tuck under the next row, like tiers of dividers */
 /* organiser stack: each tab's body continues down behind the tabs below it */
 .client-grid > li { margin-bottom: calc(-1 * var(--sink)); }
@@ -1310,8 +1310,8 @@ body::before {
   overflow-wrap: break-word;
 }
 .client-tile__desc {
-  margin-top: var(--space-xs);
-  margin-bottom: var(--space-md);   /* keep clear of the red footer */
+  margin-top: var(--space-sm);      /* space under the name */
+  margin-bottom: var(--space-lg);   /* space before the tag */
   font-family: var(--font-accent);   /* same serif as the tab title */
   font-size: .71rem;   /* 75% of previous */
   line-height: 1.5;
@@ -1320,7 +1320,7 @@ body::before {
 .client-tile__meta {
   /* tag line right under the description (the tab's lower body is hidden) */
   margin-top: 0;
-  padding-bottom: var(--space-sm);
+  padding-bottom: var(--space-md);
   font-family: var(--font-base);
   font-size: .54rem;   /* 75% of previous */
   letter-spacing: .01em;
