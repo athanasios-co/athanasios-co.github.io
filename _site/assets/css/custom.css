@@ -1310,7 +1310,7 @@ body::before {
 .client-tile__name {
   font-family: var(--font-accent);
   font-weight: 500;
-  font-size: clamp(.86rem, .71rem + .53vw, 1.2rem);   /* 75% of previous */
+  font-size: clamp(calc(.86rem + 2px), calc(.71rem + .53vw + 2px), calc(1.2rem + 2px));   /* +2px */
   line-height: 1.25;
   overflow-wrap: break-word;
 }
@@ -1369,7 +1369,7 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
   .client-grid > li { flex: 1 1 100%; }
   .client-grid { --tab-pad-y: var(--space-sm); --tab-pad-x: var(--space-sm); }
   /* larger text on phones */
-  .client-tile__name { font-size: 1.15rem; }
+  .client-tile__name { font-size: calc(1.15rem + 2px); }
   .client-tile__desc { font-size: .95rem; }
   .client-tile__meta { font-size: .72rem; }
   .client-tile__name { white-space: normal; }
