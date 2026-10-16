@@ -150,6 +150,8 @@ title: Digital Marketing Strategy
 
 </section>
 
+{% include client-tiles.html %}
+
   <section class="text-block measure blobbed blob--sm blob-right blob-overlap style-frost bleed-host">
     <div class="blurb">
       <h4>Are you looking to determine your goals and KPIs?</h4>
