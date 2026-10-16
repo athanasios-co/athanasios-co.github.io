@@ -42,6 +42,11 @@
      --blob-frost-tint:  rgba(0,0,0,0.04);
      --blob-frost-border:rgba(240,240,240,0.85);
 
+     /* Brick accents (restored; same values as neophron-residence-athens) */
+     --blob-brick-coral: lightcoral;
+     --blob-brick-ivory: #f4ede2;
+     --blob-brick-poppy: #ff4a2d;
+
      /* Screen shades */
      --screen-grey-1:  rgba(0,0,0,0.06);
      --screen-grey-2:  rgba(0,0,0,0.10);
@@ -1182,8 +1187,8 @@ body::before {
   margin-left: calc(50% - 50vw);
   box-sizing: border-box;
   padding: var(--space-xl) var(--space-lg);
-  /* aged paper tint, slightly warmer than --paper-bg */
-  background: radial-gradient(120% 140% at 50% 0%, #f1ead9 0%, #e7dcc5 60%, #dccfb4 100%);
+  /* sandy ivory, the site's --blob-brick-ivory */
+  background: var(--blob-brick-ivory);
   box-shadow: inset 0 0 70px rgba(80,60,30,.18);
   position: relative;
   overflow: hidden;            /* crops the giant aA at the edges */
