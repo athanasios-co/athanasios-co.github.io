@@ -2,7 +2,20 @@
 <section class="client-tiles" aria-labelledby="client-tiles-title">
   <h3 id="client-tiles-title">Clients</h3>
   <div class="client-band">
-    <span class="client-band__mark" aria-hidden="true">aA</span>
+    <svg class="client-band__mark" viewBox="0 0 700 420" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+      <defs>
+        <!-- crisp inner shadow = paper cut-out with sharp edges -->
+        <filter id="aa-cutout" x="0" y="0" width="100%" height="100%">
+          <feComponentTransfer in="SourceAlpha" result="inv"><feFuncA type="table" tableValues="1 0"/></feComponentTransfer>
+          <feOffset in="inv" dx="5" dy="5" result="invShift"/>
+          <feFlood flood-color="#000" flood-opacity=".22"/>
+          <feComposite operator="in" in2="invShift"/>
+          <feComposite operator="in" in2="SourceAlpha" result="innerShadow"/>
+          <feMerge><feMergeNode in="SourceGraphic"/><feMergeNode in="innerShadow"/></feMerge>
+        </filter>
+      </defs>
+      <text x="50%" y="54%" text-anchor="middle" dominant-baseline="middle" filter="url(#aa-cutout)">aA</text>
+    </svg>
   <ul class="client-grid">
     {%- for c in site.data.clients %}
     {%- assign meta = c.tag | default: '' -%}
