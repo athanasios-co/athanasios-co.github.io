@@ -1247,21 +1247,14 @@ body::before {
   top: calc(-1 * var(--back-peek));
   bottom: calc(-1 * var(--sink));
   width: calc((100% - var(--col-gap)) / 2 + var(--back-out) + var(--back-in));
-  /* black glass: dark gradient + sheen + bright edges */
+  /* glossy screen-black: like a switched-off monitor — deep black, one soft broad reflection, crisp edge */
   background:
-    /* shiny black: glossy top highlight + diagonal glint over deep black */
-    linear-gradient(180deg, rgba(255,255,255,.38) 0%, rgba(255,255,255,.12) 4%, rgba(255,255,255,0) 14%),
-    linear-gradient(115deg, rgba(255,255,255,0) 28%, rgba(255,255,255,.18) 40%, rgba(255,255,255,.04) 46%, rgba(255,255,255,0) 56%),
-    radial-gradient(120% 60% at 30% 0%, rgba(255,255,255,.10) 0%, rgba(255,255,255,0) 60%),
-    linear-gradient(160deg, #141416 0%, #000 100%);   /* glossier */
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+    linear-gradient(135deg, rgba(255,255,255,.07) 0%, rgba(255,255,255,.035) 38%, rgba(255,255,255,0) 38.5%),
+    linear-gradient(180deg, #111113 0%, #050506 100%);
   box-shadow:
     0 -6px 18px rgba(0,0,0,.22),
-    inset 0 1px 0 rgba(255,255,255,.65),
-    inset 1px 0 0 rgba(255,255,255,.14),
-    inset -1px 0 0 rgba(255,255,255,.06),
-    inset 0 0 40px rgba(255,255,255,.04);
+    inset 0 0 0 1px rgba(255,255,255,.08),
+    inset 0 1px 0 rgba(255,255,255,.22);
   border-radius: 6px 10px 0 0;  /* much tighter corners */
   pointer-events: none;
 }
