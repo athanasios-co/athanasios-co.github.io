@@ -1249,7 +1249,7 @@ body::before {
 .client-phone {
   position: absolute;
   z-index: 0;
-  width: clamp(230px, 27vw, 380px);   /* large; sized so the four don't overlap */
+  width: clamp(230px, 30vw, 430px);   /* larger */
   aspect-ratio: 9 / 19.5;
   border-radius: 15% / 7%;
   background:
@@ -1261,11 +1261,10 @@ body::before {
     0 24px 48px rgba(0,0,0,.28);
   pointer-events: none;
 }
-/* original twisted layout, nudged apart just enough that they don't overlap */
-.client-phone--1 { left: -5%;  top: -2%; transform: rotate(-14deg); }
-.client-phone--2 { left: 26%;  top: 47%; transform: perspective(900px) rotateY(22deg) rotate(9deg); }
-.client-phone--3 { right: 19%; top: -6%; transform: perspective(900px) rotateY(-24deg) rotate(-7deg); }
-.client-phone--4 { right: -7%; top: 52%; transform: rotate(17deg); }
+.client-phone--1 { left: 3%;  top: 4%;  transform: rotate(-14deg); }
+.client-phone--2 { left: 28%; top: 38%; transform: perspective(900px) rotateY(22deg) rotate(9deg); }
+.client-phone--3 { right: 16%; top: 2%; transform: perspective(900px) rotateY(-24deg) rotate(-7deg); }   /* nudged right */
+.client-phone--4 { right: 2%; top: 42%; transform: rotate(17deg); }
 .client-grid { --tab-pad-y: var(--space-lg); --tab-pad-x: var(--space-lg); --tab-overlap: 0px; --sink: 2000px;   /* every tab runs down this far; the band clips them all at its bottom edge */ }
 /* rows tuck under the next row, like tiers of dividers */
 /* organiser stack: each tab's body continues down behind the tabs below it */
@@ -1362,11 +1361,6 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
   .client-grid > li:nth-child(11){z-index:11}
   .client-grid > li:nth-child(12){z-index:12}
   .client-phone { width: 58vw; }
-  /* one column: stack the phones down the band, alternating sides */
-  .client-phone--1 { left: -14%; right: auto; top: 0%; }
-  .client-phone--2 { left: 56%;  right: auto; top: 25%; }
-  .client-phone--3 { left: -14%; right: auto; top: 50%; }
-  .client-phone--4 { left: 56%;  right: auto; top: 75%; }
   .client-grid > li { flex: 1 1 100%; }
   .client-grid { --tab-pad-y: var(--space-sm); --tab-pad-x: var(--space-sm); }
   /* larger text on phones */
