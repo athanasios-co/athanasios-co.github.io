@@ -1189,7 +1189,7 @@ body::before {
   padding: var(--space-xl) var(--space-lg);
   /* sandy ivory, the site's --blob-brick-ivory */
   background: var(--blob-brick-ivory);
-  box-shadow: inset 0 0 70px rgba(40,36,32,.16);
+  box-shadow: 0 -4px 14px rgba(40,36,32,.06), 0 12px 32px rgba(40,36,32,.14);   /* raised */
   position: relative;
   overflow: hidden;            /* crops the giant aA at the edges */
   isolation: isolate;
@@ -1235,8 +1235,15 @@ body::before {
 .client-grid > li { flex: 0 0 calc((100% + 2 * var(--tab-overlap)) / 3); display: flex; position: relative; }  /* 3 per row incl. overlap */
 /* overlap like binder dividers: each tab tucks over the previous one */
 .client-grid > li + li { margin-left: calc(-1 * var(--tab-overlap)); }
+/* left tab on top: stacking decreases left to right */
+.client-grid > li:nth-child(1){z-index:12} .client-grid > li:nth-child(2){z-index:11}
+.client-grid > li:nth-child(3){z-index:10} .client-grid > li:nth-child(4){z-index:9}
+.client-grid > li:nth-child(5){z-index:8}  .client-grid > li:nth-child(6){z-index:7}
+.client-grid > li:nth-child(7){z-index:6}  .client-grid > li:nth-child(8){z-index:5}
+.client-grid > li:nth-child(9){z-index:4}  .client-grid > li:nth-child(10){z-index:3}
+.client-grid > li:nth-child(11){z-index:2} .client-grid > li:nth-child(12){z-index:1}
 .client-grid > li:hover,
-.client-grid > li:focus-within { z-index: 2; }
+.client-grid > li:focus-within { z-index: 20; }
 .client-grid { --tab-overlap: 28px; --row-overlap: 0px;   /* 0 so every red lining stays visible */ padding-bottom: var(--row-overlap); }
 /* rows tuck under the next row, like tiers of dividers */
 .client-grid > li { margin-bottom: calc(-1 * var(--row-overlap)); }
@@ -1250,7 +1257,7 @@ body::before {
   flex: 1;
   box-sizing: border-box;
   text-align: left;
-  padding: var(--space-md) calc(var(--space-lg) + var(--tab-overlap)) calc(var(--space-md) - 2px) var(--space-lg);
+  padding: var(--space-md) var(--space-lg) calc(var(--space-md) - 2px) calc(var(--space-lg) + var(--tab-overlap));
   /* tab shape: rounded top, flat bottom on a baseline */
   border-radius: 18px 18px 0 0;
   border: 1px solid var(--blob-frost-border);
@@ -1258,7 +1265,7 @@ body::before {
   background: linear-gradient(160deg, rgba(255,255,255,0.6), rgba(230,230,230,0.3));
   backdrop-filter: blur(12px) saturate(1.1);
   -webkit-backdrop-filter: blur(12px) saturate(1.1);
-  box-shadow: -10px 0 22px rgba(40,36,32,.10), 0 14px 40px rgba(0,0,0,.08), inset 0 0 60px rgba(255,255,255,.15);
+  box-shadow: 10px 0 22px rgba(40,36,32,.10), 0 14px 40px rgba(0,0,0,.08), inset 0 0 60px rgba(255,255,255,.15);
   color: var(--ink);
   transition: transform .25s ease, box-shadow .25s ease, color .2s ease;
 }
