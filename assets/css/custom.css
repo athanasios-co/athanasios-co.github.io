@@ -1244,7 +1244,7 @@ body::before {
 .client-phone {
   position: absolute;
   z-index: 0;
-  width: clamp(170px, 21vw, 300px);
+  width: clamp(230px, 30vw, 430px);   /* larger */
   aspect-ratio: 9 / 19.5;
   border-radius: 15% / 7%;
   background:
@@ -1255,17 +1255,6 @@ body::before {
     inset 0 0 0 5px rgba(255,255,255,.10),   /* frame highlight */
     0 24px 48px rgba(0,0,0,.28);
   pointer-events: none;
-}
-.client-phone::before {                     /* dynamic-island pill */
-  content: "";
-  position: absolute;
-  top: 2.6%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 30%;
-  height: 3.4%;
-  border-radius: 999px;
-  background: #000;
 }
 .client-phone--1 { left: 3%;  top: 4%;  transform: rotate(-14deg); }
 .client-phone--2 { left: 28%; top: 38%; transform: perspective(900px) rotateY(22deg) rotate(9deg); }
@@ -1366,7 +1355,7 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
   .client-grid > li:nth-child(10){z-index:10}
   .client-grid > li:nth-child(11){z-index:11}
   .client-grid > li:nth-child(12){z-index:12}
-  .client-phone { width: 42vw; }
+  .client-phone { width: 58vw; }
   .client-grid > li { flex: 1 1 100%; }
   .client-grid { --tab-pad-y: var(--space-sm); --tab-pad-x: var(--space-sm); }
   /* larger text on phones */
