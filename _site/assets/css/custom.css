@@ -1218,16 +1218,22 @@ body::before {
 .client-grid > li { flex: 0 0 calc((100% + var(--tab-overlap)) / 2); display: flex; position: relative; }  /* 2 per row incl. overlap */
 /* overlap like binder dividers: each tab tucks over the previous one */
 .client-grid > li + li { margin-left: calc(-1 * var(--tab-overlap)); }
-/* left tab on top: stacking decreases left to right */
-.client-grid > li:nth-child(1){z-index:12} .client-grid > li:nth-child(2){z-index:11}
-.client-grid > li:nth-child(3){z-index:10} .client-grid > li:nth-child(4){z-index:9}
-.client-grid > li:nth-child(5){z-index:8}  .client-grid > li:nth-child(6){z-index:7}
-.client-grid > li:nth-child(7){z-index:6}  .client-grid > li:nth-child(8){z-index:5}
-.client-grid > li:nth-child(9){z-index:4}  .client-grid > li:nth-child(10){z-index:3}
-.client-grid > li:nth-child(11){z-index:2} .client-grid > li:nth-child(12){z-index:1}
+/* stacking: lower rows sit over the row above; within a row the left tab is on top */
+.client-grid > li:nth-child(1){z-index:3}
+.client-grid > li:nth-child(2){z-index:2}
+.client-grid > li:nth-child(3){z-index:5}
+.client-grid > li:nth-child(4){z-index:4}
+.client-grid > li:nth-child(5){z-index:7}
+.client-grid > li:nth-child(6){z-index:6}
+.client-grid > li:nth-child(7){z-index:9}
+.client-grid > li:nth-child(8){z-index:8}
+.client-grid > li:nth-child(9){z-index:11}
+.client-grid > li:nth-child(10){z-index:10}
+.client-grid > li:nth-child(11){z-index:13}
+.client-grid > li:nth-child(12){z-index:12}
 .client-grid > li:hover,
 .client-grid > li:focus-within { z-index: 20; }
-.client-grid { --tab-pad-y: var(--space-md); --tab-pad-x: var(--space-lg); --tab-overlap: 28px; --row-overlap: 22px;   /* earlier rows sit on top, so red strips stay visible */ padding-bottom: var(--row-overlap); }
+.client-grid { --tab-pad-y: var(--space-md); --tab-pad-x: var(--space-lg); --tab-overlap: 28px; --row-overlap: 22px;   /* each row's tops cover this much of the row above */ padding-bottom: var(--row-overlap); }
 /* rows tuck under the next row, like tiers of dividers */
 .client-grid > li { margin-bottom: calc(-1 * var(--row-overlap)); }
 
@@ -1241,7 +1247,8 @@ body::before {
   box-sizing: border-box;
   text-align: left;
   /* no bottom padding: the red tag footer sits flush at the bottom */
-  padding: calc(var(--tab-pad-y) + var(--row-overlap)) var(--tab-pad-x) 0 calc(var(--tab-pad-x) + var(--tab-overlap));  /* top: room for the row above */
+  /* bottom padding = the part hidden under the next row, so the red strip stays visible */
+  padding: var(--tab-pad-y) var(--tab-pad-x) var(--row-overlap) calc(var(--tab-pad-x) + var(--tab-overlap));
   /* tab shape: rounded top, flat bottom on a baseline */
   border-radius: 18px 18px 0 0;
   border: 1px solid var(--blob-frost-border);
@@ -1271,8 +1278,7 @@ body::before {
 .client-tile__meta {
   /* thick red footer spanning the full tab width, holding the tag */
   margin: auto calc(-1 * var(--tab-pad-x)) 0 calc(-1 * (var(--tab-pad-x) + var(--tab-overlap)));
-  padding: 4px var(--tab-pad-x) 4px calc(var(--tab-pad-x) + var(--tab-overlap));
-  line-height: 1.4;               /* strip ≈ 2/3 of its previous height */
+  padding: 10px var(--tab-pad-x) 10px calc(var(--tab-pad-x) + var(--tab-overlap));
   background: #E3120B;
   font-weight: 500;
   font-family: var(--font-base);
@@ -1289,13 +1295,32 @@ a.client-tile:focus-visible {
   color: var(--accent);
 }
 a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-.client-tile.is-static { opacity: .7; padding-bottom: var(--tab-pad-y); }
+.client-tile.is-static { opacity: .7; padding-bottom: calc(var(--tab-pad-y) + var(--row-overlap)); }
+/* last row: nothing covers it, so no hidden bottom area */
+.client-grid > li:last-child .client-tile,
+.client-grid > li:nth-last-child(2):nth-child(odd) .client-tile { padding-bottom: 0; }
+.client-grid > li:last-child .client-tile.is-static,
+.client-grid > li:nth-last-child(2):nth-child(odd) .client-tile.is-static { padding-bottom: var(--tab-pad-y); }
 
 /* Mobile: keep 2 columns, tighter tiles */
 @media (max-width: 600px){
   .client-band { padding: var(--space-lg) var(--space-sm); }
   /* mobile: one full-width divider per row, stacked; no sideways overlap */
   .client-grid { --tab-overlap: 0px; --row-overlap: 14px; }
+  /* one column: each tab sits over the one above */
+  .client-grid > li:nth-child(1){z-index:1}
+  .client-grid > li:nth-child(2){z-index:2}
+  .client-grid > li:nth-child(3){z-index:3}
+  .client-grid > li:nth-child(4){z-index:4}
+  .client-grid > li:nth-child(5){z-index:5}
+  .client-grid > li:nth-child(6){z-index:6}
+  .client-grid > li:nth-child(7){z-index:7}
+  .client-grid > li:nth-child(8){z-index:8}
+  .client-grid > li:nth-child(9){z-index:9}
+  .client-grid > li:nth-child(10){z-index:10}
+  .client-grid > li:nth-child(11){z-index:11}
+  .client-grid > li:nth-child(12){z-index:12}
+  .client-grid > li:nth-last-child(2):nth-child(odd) .client-tile:not(.is-static) { padding-bottom: var(--row-overlap); }
   .client-grid > li { flex: 1 1 100%; }
   .client-grid { --tab-pad-y: var(--space-sm); --tab-pad-x: var(--space-sm); }
   .client-tile__name { white-space: normal; }
