@@ -1370,3 +1370,13 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
   .client-tile { transition: none; }
   a.client-tile:hover, a.client-tile:focus-visible { transform: none; }
 }
+
+/* Footer credit */
+.site-credit {
+  margin: var(--space-lg) 0 0;
+  text-align: center;
+  font-family: var(--font-base);
+  font-size: .72rem;
+  letter-spacing: .02em;
+  color: rgba(0,0,0,.55);
+}
