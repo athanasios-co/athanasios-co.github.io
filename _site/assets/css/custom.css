@@ -965,11 +965,7 @@ body::before {
   margin-right: 0;
   box-sizing: border-box;
   padding: var(--space-lg) var(--space-lg);
-  /* faint grey square grid, like graph paper */
-  background:
-    linear-gradient(to right, rgba(0,0,0,.07) 1px, transparent 1px) 0 0 / 20px 20px,
-    linear-gradient(to bottom, rgba(0,0,0,.07) 1px, transparent 1px) 0 0 / 20px 20px,
-    rgba(255,255,255,0.72);
+  background: rgba(255,255,255,0.86);   /* plain, a little paler */
   backdrop-filter: blur(6px) saturate(1.1);
   -webkit-backdrop-filter: blur(6px) saturate(1.1);
   box-shadow: 0 14px 32px rgba(40,36,32,.16), 0 -4px 14px rgba(40,36,32,.06);
@@ -1322,7 +1318,7 @@ body::before {
   /* tag line right under the description (the tab's lower body is hidden) */
   margin-top: 0;
   padding-top: var(--space-sm);
-  border-top: 3px dashed #E3120B;   /* red dotted divider between paragraph and tag */
+  border-top: 6px dashed #E3120B;   /* red dotted divider between paragraph and tag */
   padding-bottom: var(--space-md);
   font-family: var(--font-base);
   font-size: .54rem;   /* 75% of previous */
