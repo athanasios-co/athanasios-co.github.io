@@ -1194,22 +1194,25 @@ body::before {
   overflow: hidden;            /* crops the giant aA at the edges */
   isolation: isolate;
 }
-/* oversize dark grey "aA": ~125% of the band width, so roughly 20% is cropped by the band edges */
+/* oversize logo behind the tabs; ~20% cropped by the band edges.
+   logo11.png is 720x720 with the mark filling ~77.5% of its height,
+   so 161% of the band height shows the mark at ~125% (≈20% hidden). */
 .client-band__mark {
   position: absolute;
   z-index: -1;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-family: var(--font-accent);
-  font-weight: 600;
-  font-size: 108vw;            /* band is 100vw wide; "aA" is ~1.15em wide */
-  line-height: .75;
-  letter-spacing: -.03em;
-  white-space: nowrap;
-  color: #4a4a4a;
+  height: 161%;
+  width: auto;
+  max-width: none;
+  opacity: .72;               /* black logo reads as dark grey */
   pointer-events: none;
   user-select: none;
+}
+@media (max-width: 600px){
+  /* tall narrow band on mobile: size by width instead */
+  .client-band__mark { height: auto; width: 160vw; }
 }
 .client-band > .client-grid { position: relative; }
 .client-tiles > h3 {
