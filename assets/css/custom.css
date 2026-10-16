@@ -1208,14 +1208,14 @@ body::before {
   flex-wrap: wrap;
   justify-content: center;
   align-items: stretch;         /* equal-height tabs on a shared baseline */
-  gap: var(--space-xs) 0;       /* small row gap; tabs overlap sideways */
+  gap: 0;                       /* tabs overlap sideways and rows overlap vertically */
   max-width: 1300px;            /* same cap as .features band */
   margin: 0 auto;
   padding: 0;
   list-style: none;
 }
 /* browser-tab arrangement: each tab is as wide as its title */
-.client-grid > li { flex: 0 0 calc((100% + 2 * var(--tab-overlap)) / 3); display: flex; position: relative; }  /* 3 per row incl. overlap */
+.client-grid > li { flex: 0 0 calc((100% + var(--tab-overlap)) / 2); display: flex; position: relative; }  /* 2 per row incl. overlap */
 /* overlap like binder dividers: each tab tucks over the previous one */
 .client-grid > li + li { margin-left: calc(-1 * var(--tab-overlap)); }
 /* left tab on top: stacking decreases left to right */
@@ -1227,7 +1227,7 @@ body::before {
 .client-grid > li:nth-child(11){z-index:2} .client-grid > li:nth-child(12){z-index:1}
 .client-grid > li:hover,
 .client-grid > li:focus-within { z-index: 20; }
-.client-grid { --tab-pad-y: var(--space-md); --tab-pad-x: var(--space-lg); --tab-overlap: 28px; --row-overlap: 0px;   /* 0 so every red lining stays visible */ padding-bottom: var(--row-overlap); }
+.client-grid { --tab-pad-y: var(--space-md); --tab-pad-x: var(--space-lg); --tab-overlap: 28px; --row-overlap: 22px;   /* earlier rows sit on top, so red strips stay visible */ padding-bottom: var(--row-overlap); }
 /* rows tuck under the next row, like tiers of dividers */
 .client-grid > li { margin-bottom: calc(-1 * var(--row-overlap)); }
 
@@ -1241,7 +1241,7 @@ body::before {
   box-sizing: border-box;
   text-align: left;
   /* no bottom padding: the red tag footer sits flush at the bottom */
-  padding: var(--tab-pad-y) var(--tab-pad-x) 0 calc(var(--tab-pad-x) + var(--tab-overlap));
+  padding: calc(var(--tab-pad-y) + var(--row-overlap)) var(--tab-pad-x) 0 calc(var(--tab-pad-x) + var(--tab-overlap));  /* top: room for the row above */
   /* tab shape: rounded top, flat bottom on a baseline */
   border-radius: 18px 18px 0 0;
   border: 1px solid var(--blob-frost-border);
@@ -1291,15 +1291,11 @@ a.client-tile:focus-visible {
 a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 .client-tile.is-static { opacity: .7; padding-bottom: var(--tab-pad-y); }
 
-/* Laptop / tablet: 2 per row */
-@media (max-width: 1000px){
-  .client-grid > li { flex-basis: calc((100% + var(--tab-overlap)) / 2); }
-}
 /* Mobile: keep 2 columns, tighter tiles */
 @media (max-width: 600px){
   .client-band { padding: var(--space-lg) var(--space-sm); }
   /* mobile: one full-width divider per row, stacked; no sideways overlap */
-  .client-grid { --tab-overlap: 0px; --row-overlap: 0px; }
+  .client-grid { --tab-overlap: 0px; --row-overlap: 14px; }
   .client-grid > li { flex: 1 1 100%; }
   .client-grid { --tab-pad-y: var(--space-sm); --tab-pad-x: var(--space-sm); }
   .client-tile__name { white-space: normal; }
