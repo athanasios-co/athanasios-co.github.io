@@ -1209,7 +1209,7 @@ body::before {
   justify-content: center;
   align-items: stretch;         /* equal-height tabs on a shared baseline */
   gap: 0 var(--space-xl);       /* rows overlap vertically; columns breathe */
-  max-width: 1040px;            /* narrower tabs, room at the sides */
+  max-width: 840px;             /* narrower tabs, room at the sides */
   margin: 0 auto;
   padding: 0;
   list-style: none;
