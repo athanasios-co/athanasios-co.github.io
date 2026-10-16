@@ -1252,7 +1252,8 @@ body::before {
   /* tab shape: rounded top, flat bottom on a baseline */
   border-radius: 18px 18px 0 0;
   border: 1px solid var(--blob-frost-border);
-  border-bottom: none;          /* the red tag strip is the only red */
+  border-top: 3px solid #E3120B;   /* red lining along the top of each tab */
+  border-bottom: none;
   background: linear-gradient(160deg, rgba(255,255,255,0.6), rgba(230,230,230,0.3));
   backdrop-filter: blur(12px) saturate(1.1);
   -webkit-backdrop-filter: blur(12px) saturate(1.1);
@@ -1277,16 +1278,14 @@ body::before {
   color: rgba(0,0,0,.72);
 }
 .client-tile__meta {
-  /* thick red footer spanning the full tab width, holding the tag */
-  margin: auto calc(-1 * var(--tab-pad-x)) 0 calc(-1 * (var(--tab-pad-x) + var(--tab-overlap)));
-  padding: 10px var(--tab-pad-x) 10px calc(var(--tab-pad-x) + var(--tab-overlap));
-  background: #E3120B;
-  font-weight: 500;
+  /* plain tag line at the bottom of the tab */
+  margin-top: auto;
+  padding-bottom: var(--space-sm);
   font-family: var(--font-base);
   font-size: .72rem;
   letter-spacing: .04em;
   text-transform: uppercase;
-  color: #fff;
+  color: rgba(0,0,0,.6);
   overflow-wrap: anywhere;
 }
 a.client-tile:hover,
