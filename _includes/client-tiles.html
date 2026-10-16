@@ -4,14 +4,11 @@
   <ul class="client-grid">
     {%- for c in site.data.clients %}
     {%- assign meta = c.tag | default: '' -%}
-    {%- if meta == '' and c.url != '#' -%}
-      {%- assign meta = c.url | remove_first: 'https://' | remove_first: 'http://' | remove_first: 'www.' | split: '/' | first -%}
-    {%- endif %}
     <li>
       {%- if c.url != '#' %}
       <a class="client-tile" href="{{ c.url }}"{% if c.aria %} aria-label="{{ c.aria }}"{% endif %} target="_blank" rel="noopener">
         <span class="client-tile__name">{{ c.name }}</span>
-        <span class="client-tile__meta" aria-hidden="true">{{ meta }} ↗</span>
+        <span class="client-tile__meta" aria-hidden="true">{% if meta != '' %}{{ meta }} {% endif %}↗</span>
       </a>
       {%- else %}
       <div class="client-tile is-static">
