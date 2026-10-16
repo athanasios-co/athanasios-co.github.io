@@ -1,6 +1,8 @@
 <!-- Clients: glass tiles (data: _data/clients.yml) -->
 <section class="client-tiles" aria-labelledby="client-tiles-title">
   <h3 id="client-tiles-title">Clients</h3>
+  <div class="client-band">
+    <span class="client-band__mark" aria-hidden="true">aA</span>
   <ul class="client-grid">
     {%- for c in site.data.clients %}
     {%- assign meta = c.tag | default: '' -%}
@@ -19,4 +21,5 @@
     </li>
     {%- endfor %}
   </ul>
+  </div>
 </section>
