@@ -1200,7 +1200,7 @@ body::before {
 }
 .client-band > .client-grid { position: relative; }
 .client-band > h3 {   /* title now sits inside the band */
-  margin: 0 auto calc(var(--space-xl) + 16px);   /* clear space above the black back tabs */
+  margin: 0 auto calc(var(--space-xxl) + 32px);   /* clear space above the black back tabs */
   color: var(--color-accent);   /* same blue as the icons */
   font-family: var(--font-accent);
   font-weight: 600;
@@ -1239,7 +1239,7 @@ body::before {
 /* hover keeps the stacking: the hovered tab stays under the tab below */
 /* one big black back tab behind each column; peeks out above the first tab
    and runs down under the band's bottom edge with the last row */
-.client-grid { position: relative; --back-peek: 32px; --back-out: 90px; --col-gap: calc(var(--space-xl) + 56px); --back-in: calc(var(--col-gap) / 2);   /* wide outer sides; inner edges meet in the middle */ }   /* back tab: taller and much wider than the cards */
+.client-grid { position: relative; --back-peek: 32px; --back-out: 130px; --col-gap: calc(var(--space-xl) + 56px); --back-in: calc(var(--col-gap) / 2);   /* wide outer sides; inner edges meet in the middle */ }   /* back tab: taller and much wider than the cards */
 .client-grid::before,
 .client-grid::after {
   content: "";
@@ -1250,17 +1250,19 @@ body::before {
   width: calc((100% - var(--col-gap)) / 2 + var(--back-out) + var(--back-in));
   /* black glass: dark gradient + sheen + bright edges */
   background:
-    linear-gradient(125deg, rgba(255,255,255,.09) 0%, rgba(255,255,255,.02) 35%, rgba(255,255,255,0) 60%, rgba(255,255,255,.04) 100%),
-    linear-gradient(160deg, rgba(20,20,22,.97) 0%, rgba(2,2,4,.99) 100%);   /* darker */
+    /* shiny black: glossy top highlight + diagonal glint over deep black */
+    linear-gradient(180deg, rgba(255,255,255,.22) 0%, rgba(255,255,255,.06) 6%, rgba(255,255,255,0) 18%),
+    linear-gradient(115deg, rgba(255,255,255,0) 30%, rgba(255,255,255,.10) 42%, rgba(255,255,255,0) 54%),
+    linear-gradient(160deg, #1a1a1c 0%, #050506 100%);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   box-shadow:
     0 -6px 18px rgba(0,0,0,.22),
-    inset 0 1px 0 rgba(255,255,255,.28),
+    inset 0 1px 0 rgba(255,255,255,.45),
     inset 1px 0 0 rgba(255,255,255,.14),
     inset -1px 0 0 rgba(255,255,255,.06),
     inset 0 0 40px rgba(255,255,255,.04);
-  border-radius: 20px 32px 0 0; /* same tab shape */
+  border-radius: 6px 10px 0 0;  /* much tighter corners */
   pointer-events: none;
 }
 .client-grid::before { left: calc(-1 * var(--back-out)); }
@@ -1311,7 +1313,7 @@ body::before {
 }
 .client-tile__desc {
   margin-top: var(--space-sm);      /* space under the name */
-  margin-bottom: var(--space-lg);   /* space before the tag */
+  margin-bottom: var(--space-md);   /* space before the dotted line */
   font-family: var(--font-accent);   /* same serif as the tab title */
   font-size: .71rem;   /* 75% of previous */
   line-height: 1.5;
@@ -1320,6 +1322,8 @@ body::before {
 .client-tile__meta {
   /* tag line right under the description (the tab's lower body is hidden) */
   margin-top: 0;
+  padding-top: var(--space-sm);
+  border-top: 2px dotted #E3120B;   /* red dotted divider between paragraph and tag */
   padding-bottom: var(--space-md);
   font-family: var(--font-base);
   font-size: .54rem;   /* 75% of previous */
