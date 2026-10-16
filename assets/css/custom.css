@@ -1225,7 +1225,7 @@ body::before {
   flex-wrap: wrap;
   justify-content: center;
   align-items: stretch;         /* equal-height tabs on a shared baseline */
-  gap: 0;                       /* tabs and rows overlap instead of gapping */
+  gap: var(--space-xs) 0;       /* small row gap; tabs overlap sideways */
   max-width: 1300px;            /* same cap as .features band */
   margin: 0 auto;
   padding: 0;
@@ -1237,7 +1237,7 @@ body::before {
 .client-grid > li + li { margin-left: calc(-1 * var(--tab-overlap)); }
 .client-grid > li:hover,
 .client-grid > li:focus-within { z-index: 2; }
-.client-grid { --tab-overlap: 28px; --row-overlap: 18px; padding-bottom: var(--row-overlap); }
+.client-grid { --tab-overlap: 28px; --row-overlap: 0px;   /* 0 so every red lining stays visible */ padding-bottom: var(--row-overlap); }
 /* rows tuck under the next row, like tiers of dividers */
 .client-grid > li { margin-bottom: calc(-1 * var(--row-overlap)); }
 
@@ -1254,7 +1254,7 @@ body::before {
   /* tab shape: rounded top, flat bottom on a baseline */
   border-radius: 18px 18px 0 0;
   border: 1px solid var(--blob-frost-border);
-  border-bottom: 2px solid rgba(60,40,20,.28);
+  border-bottom: 3px solid var(--blob-brick-poppy);   /* red lining */
   background: linear-gradient(160deg, rgba(255,255,255,0.6), rgba(230,230,230,0.3));
   backdrop-filter: blur(12px) saturate(1.1);
   -webkit-backdrop-filter: blur(12px) saturate(1.1);
@@ -1289,7 +1289,6 @@ body::before {
 a.client-tile:hover,
 a.client-tile:focus-visible {
   transform: translateY(-4px);          /* tab "lifts" like an active tab */
-  border-bottom-color: transparent;
   box-shadow: 0 18px 44px rgba(0,0,0,.14), inset 0 0 60px rgba(255,255,255,.2);
   color: var(--accent);
 }
@@ -1304,7 +1303,7 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
 @media (max-width: 600px){
   .client-band { padding: var(--space-lg) var(--space-sm); }
   /* mobile: one full-width divider per row, stacked; no sideways overlap */
-  .client-grid { --tab-overlap: 0px; --row-overlap: 12px; }
+  .client-grid { --tab-overlap: 0px; --row-overlap: 0px; }
   .client-grid > li { flex: 1 1 100%; }
   .client-tile { padding: var(--space-xs) var(--space-sm); }
   .client-tile__name { white-space: normal; }
