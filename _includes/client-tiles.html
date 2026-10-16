@@ -2,7 +2,6 @@
 <section class="client-tiles" aria-labelledby="client-tiles-title">
   <h3 id="client-tiles-title">Clients</h3>
   <div class="client-band">
-    <img class="client-band__mark" src="{{ '/assets/img/logo11.png' | relative_url }}" alt="" aria-hidden="true" loading="lazy" decoding="async">
   <ul class="client-grid">
     {%- for c in site.data.clients %}
     {%- assign meta = c.tag | default: '' -%}

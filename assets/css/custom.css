@@ -1194,26 +1194,6 @@ body::before {
   overflow: hidden;            /* crops the giant aA at the edges */
   isolation: isolate;
 }
-/* oversize logo behind the tabs; ~20% cropped by the band edges.
-   logo11.png is 720x720 with the mark filling ~77.5% of its height,
-   so 161% of the band height shows the mark at ~125% (≈20% hidden). */
-.client-band__mark {
-  position: absolute;
-  z-index: -1;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  height: 161%;
-  width: auto;
-  max-width: none;
-  opacity: .72;               /* black logo reads as dark grey */
-  pointer-events: none;
-  user-select: none;
-}
-@media (max-width: 600px){
-  /* tall narrow band on mobile: size by width instead */
-  .client-band__mark { height: auto; width: 160vw; }
-}
 .client-band > .client-grid { position: relative; }
 .client-tiles > h3 {
   margin: 0 0 var(--space-md);
@@ -1247,7 +1227,7 @@ body::before {
 .client-grid > li:nth-child(11){z-index:2} .client-grid > li:nth-child(12){z-index:1}
 .client-grid > li:hover,
 .client-grid > li:focus-within { z-index: 20; }
-.client-grid { --tab-overlap: 28px; --row-overlap: 0px;   /* 0 so every red lining stays visible */ padding-bottom: var(--row-overlap); }
+.client-grid { --tab-pad-y: var(--space-md); --tab-pad-x: var(--space-lg); --tab-overlap: 28px; --row-overlap: 0px;   /* 0 so every red lining stays visible */ padding-bottom: var(--row-overlap); }
 /* rows tuck under the next row, like tiers of dividers */
 .client-grid > li { margin-bottom: calc(-1 * var(--row-overlap)); }
 
@@ -1260,7 +1240,8 @@ body::before {
   flex: 1;
   box-sizing: border-box;
   text-align: left;
-  padding: var(--space-md) var(--space-lg) calc(var(--space-md) - 2px) calc(var(--space-lg) + var(--tab-overlap));
+  /* no bottom padding: the red tag footer sits flush at the bottom */
+  padding: var(--tab-pad-y) var(--tab-pad-x) 0 calc(var(--tab-pad-x) + var(--tab-overlap));
   /* tab shape: rounded top, flat bottom on a baseline */
   border-radius: 18px 18px 0 0;
   border: 1px solid var(--blob-frost-border);
@@ -1281,19 +1262,23 @@ body::before {
 }
 .client-tile__desc {
   margin-top: var(--space-xs);
+  margin-bottom: var(--space-md);   /* keep clear of the red footer */
   font-family: var(--font-base);
   font-size: .95rem;
   line-height: 1.5;
   color: rgba(0,0,0,.72);
 }
 .client-tile__meta {
-  margin-top: auto;
-  padding-top: var(--space-sm);
+  /* thick red footer spanning the full tab width, holding the tag */
+  margin: auto calc(-1 * var(--tab-pad-x)) 0 calc(-1 * (var(--tab-pad-x) + var(--tab-overlap)));
+  padding: 10px var(--tab-pad-x) 10px calc(var(--tab-pad-x) + var(--tab-overlap));
+  background: #E3120B;
+  font-weight: 500;
   font-family: var(--font-base);
   font-size: .72rem;
   letter-spacing: .04em;
   text-transform: uppercase;
-  color: rgba(0,0,0,.6);
+  color: #fff;
   overflow-wrap: anywhere;
 }
 a.client-tile:hover,
@@ -1303,7 +1288,7 @@ a.client-tile:focus-visible {
   color: var(--accent);
 }
 a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-.client-tile.is-static { opacity: .7; }
+.client-tile.is-static { opacity: .7; padding-bottom: var(--tab-pad-y); }
 
 /* Laptop / tablet: 2 per row */
 @media (max-width: 1000px){
@@ -1315,7 +1300,7 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
   /* mobile: one full-width divider per row, stacked; no sideways overlap */
   .client-grid { --tab-overlap: 0px; --row-overlap: 0px; }
   .client-grid > li { flex: 1 1 100%; }
-  .client-tile { padding: var(--space-xs) var(--space-sm); }
+  .client-grid { --tab-pad-y: var(--space-sm); --tab-pad-x: var(--space-sm); }
   .client-tile__name { white-space: normal; }
 }
 @media (prefers-reduced-motion: reduce){
