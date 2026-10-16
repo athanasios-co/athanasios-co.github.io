@@ -10,11 +10,13 @@
       {%- if c.url != '#' %}
       <a class="client-tile" href="{{ c.url }}"{% if c.aria %} aria-label="{{ c.aria }}"{% endif %} target="_blank" rel="noopener">
         <span class="client-tile__name">{{ c.name }}</span>
+        {%- if c.description %}<span class="client-tile__desc">{{ c.description }}</span>{% endif %}
         <span class="client-tile__meta" aria-hidden="true">{% if meta != '' %}{{ meta }} {% endif %}↗</span>
       </a>
       {%- else %}
       <div class="client-tile is-static">
         <span class="client-tile__name">{{ c.name }}</span>
+        {%- if c.description %}<span class="client-tile__desc">{{ c.description }}</span>{% endif %}
         {%- if meta != '' %}<span class="client-tile__meta">{{ meta }}</span>{% endif %}
       </div>
       {%- endif %}
