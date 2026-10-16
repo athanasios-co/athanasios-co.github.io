@@ -1,6 +1,6 @@
 # Single source for client links (nav drawer, homepage tab, homepage tiles).
 # name: visible text | url: "#" if no link yet | aria: optional screen-reader label
-# tag: optional short line shown on the tile (falls back to the site's domain)
+# tag: optional short line shown on the tile (nothing shown if omitted)
 - name: "Irish Rule of Law International (IRLI)"
   url: "https://www.irishruleoflaw.ie"
   aria: "Irish Rule of Law International (opens in new tab)"

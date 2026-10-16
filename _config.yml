@@ -11,3 +11,5 @@ include: ["assets"]
 
 url: "https://hyper-thanatos.github.io"
 baseurl: ""
+
+repository: athanasios-co/athanasios-co.github.io
