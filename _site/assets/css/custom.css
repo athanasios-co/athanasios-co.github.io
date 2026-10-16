@@ -965,7 +965,10 @@ body::before {
   margin-right: 0;
   box-sizing: border-box;
   padding: var(--space-lg) var(--space-lg);
-  background: rgba(255,255,255,0.72);
+  /* dotted graph-paper grid in the site blue (--accent #244c8a) */
+  background:
+    radial-gradient(circle, rgba(36,76,138,.38) 1.2px, transparent 1.7px) 0 0 / 20px 20px,
+    rgba(255,255,255,0.72);
   backdrop-filter: blur(6px) saturate(1.1);
   -webkit-backdrop-filter: blur(6px) saturate(1.1);
   box-shadow: 0 14px 32px rgba(40,36,32,.16), 0 -4px 14px rgba(40,36,32,.06);
@@ -1246,7 +1249,7 @@ body::before {
 .client-phone {
   position: absolute;
   z-index: 0;
-  width: clamp(230px, 30vw, 430px);   /* larger */
+  width: clamp(230px, 27vw, 380px);   /* large; sized so the four don't overlap */
   aspect-ratio: 9 / 19.5;
   border-radius: 15% / 7%;
   background:
@@ -1258,10 +1261,12 @@ body::before {
     0 24px 48px rgba(0,0,0,.28);
   pointer-events: none;
 }
-.client-phone--1 { left: 3%;  top: 4%;  transform: rotate(-14deg); }
-.client-phone--2 { left: 28%; top: 38%; transform: perspective(900px) rotateY(22deg) rotate(9deg); }
-.client-phone--3 { right: 24%; top: 2%; transform: perspective(900px) rotateY(-24deg) rotate(-7deg); }
-.client-phone--4 { right: 2%; top: 42%; transform: rotate(17deg); }
+.client-phone { left: var(--x); top: var(--y); transform: perspective(900px) rotateY(var(--ry, 0deg)) rotate(9deg); }
+/* side by side, each a step lower, same tilt with different turns, so they never overlap */
+.client-phone--1 { --x: -6%; --y: 0%;  --ry: 14deg; }
+.client-phone--2 { --x: 21%; --y: 9%;  --ry: -16deg; }
+.client-phone--3 { --x: 48%; --y: 18%; --ry: 12deg; }
+.client-phone--4 { --x: 75%; --y: 27%; --ry: -14deg; }
 .client-grid { --tab-pad-y: var(--space-lg); --tab-pad-x: var(--space-lg); --tab-overlap: 0px; --sink: 2000px;   /* every tab runs down this far; the band clips them all at its bottom edge */ }
 /* rows tuck under the next row, like tiers of dividers */
 /* organiser stack: each tab's body continues down behind the tabs below it */
@@ -1358,6 +1363,11 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
   .client-grid > li:nth-child(11){z-index:11}
   .client-grid > li:nth-child(12){z-index:12}
   .client-phone { width: 58vw; }
+  /* one column: stack the phones down the band, alternating sides */
+  .client-phone--1 { --x: -14%; --y: 0%; }
+  .client-phone--2 { --x: 56%;  --y: 25%; }
+  .client-phone--3 { --x: -14%; --y: 50%; }
+  .client-phone--4 { --x: 56%;  --y: 75%; }
   .client-grid > li { flex: 1 1 100%; }
   .client-grid { --tab-pad-y: var(--space-sm); --tab-pad-x: var(--space-sm); }
   /* larger text on phones */
