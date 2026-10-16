@@ -1214,7 +1214,7 @@ body::before {
   justify-content: center;
   align-items: stretch;         /* equal-height tabs on a shared baseline */
   gap: 0 var(--col-gap);        /* room for both black back tabs */
-  max-width: 840px;             /* narrower tabs, room at the sides */
+  max-width: min(840px, calc(100% - 2 * var(--back-out)));   /* leave room for the black back tabs */
   margin: 0 auto;
   padding: 0;
   list-style: none;
@@ -1239,7 +1239,7 @@ body::before {
 /* hover keeps the stacking: the hovered tab stays under the tab below */
 /* one big black back tab behind each column; peeks out above the first tab
    and runs down under the band's bottom edge with the last row */
-.client-grid { position: relative; --back-peek: 16px; --back-out: 60px; --col-gap: calc(var(--space-xl) + 24px); --back-in: calc(var(--col-gap) / 2);   /* wide outer sides; inner edges meet in the middle */ }   /* back tab: taller and much wider than the cards */
+.client-grid { position: relative; --back-peek: 32px; --back-out: 90px; --col-gap: calc(var(--space-xl) + 56px); --back-in: calc(var(--col-gap) / 2);   /* wide outer sides; inner edges meet in the middle */ }   /* back tab: taller and much wider than the cards */
 .client-grid::before,
 .client-grid::after {
   content: "";
@@ -1250,8 +1250,8 @@ body::before {
   width: calc((100% - var(--col-gap)) / 2 + var(--back-out) + var(--back-in));
   /* black glass: dark gradient + sheen + bright edges */
   background:
-    linear-gradient(125deg, rgba(255,255,255,.14) 0%, rgba(255,255,255,.03) 35%, rgba(255,255,255,0) 60%, rgba(255,255,255,.06) 100%),
-    linear-gradient(160deg, rgba(38,38,40,.94) 0%, rgba(8,8,10,.97) 100%);
+    linear-gradient(125deg, rgba(255,255,255,.09) 0%, rgba(255,255,255,.02) 35%, rgba(255,255,255,0) 60%, rgba(255,255,255,.04) 100%),
+    linear-gradient(160deg, rgba(20,20,22,.97) 0%, rgba(2,2,4,.99) 100%);   /* darker */
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   box-shadow:
