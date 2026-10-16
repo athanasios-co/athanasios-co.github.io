@@ -1254,7 +1254,7 @@ body::before {
   /* tab shape: rounded top, flat bottom on a baseline */
   border-radius: 18px 18px 0 0;
   border: 1px solid var(--blob-frost-border);
-  border-bottom: 3px solid var(--blob-brick-poppy);   /* red lining */
+  border-bottom: 3px solid #d00000;   /* red lining */
   background: linear-gradient(160deg, rgba(255,255,255,0.6), rgba(230,230,230,0.3));
   backdrop-filter: blur(12px) saturate(1.1);
   -webkit-backdrop-filter: blur(12px) saturate(1.1);
