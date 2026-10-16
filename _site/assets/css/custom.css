@@ -1261,12 +1261,11 @@ body::before {
     0 24px 48px rgba(0,0,0,.28);
   pointer-events: none;
 }
-.client-phone { left: var(--x); top: var(--y); transform: perspective(900px) rotateY(var(--ry, 0deg)) rotate(9deg); }
-/* side by side, each a step lower, same tilt with different turns, so they never overlap */
-.client-phone--1 { --x: -6%; --y: 0%;  --ry: 14deg; }
-.client-phone--2 { --x: 21%; --y: 9%;  --ry: -16deg; }
-.client-phone--3 { --x: 48%; --y: 18%; --ry: 12deg; }
-.client-phone--4 { --x: 75%; --y: 27%; --ry: -14deg; }
+/* original twisted layout, nudged apart just enough that they don't overlap */
+.client-phone--1 { left: -5%;  top: -2%; transform: rotate(-14deg); }
+.client-phone--2 { left: 26%;  top: 47%; transform: perspective(900px) rotateY(22deg) rotate(9deg); }
+.client-phone--3 { right: 19%; top: -6%; transform: perspective(900px) rotateY(-24deg) rotate(-7deg); }
+.client-phone--4 { right: -7%; top: 52%; transform: rotate(17deg); }
 .client-grid { --tab-pad-y: var(--space-lg); --tab-pad-x: var(--space-lg); --tab-overlap: 0px; --sink: 2000px;   /* every tab runs down this far; the band clips them all at its bottom edge */ }
 /* rows tuck under the next row, like tiers of dividers */
 /* organiser stack: each tab's body continues down behind the tabs below it */
@@ -1364,10 +1363,10 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
   .client-grid > li:nth-child(12){z-index:12}
   .client-phone { width: 58vw; }
   /* one column: stack the phones down the band, alternating sides */
-  .client-phone--1 { --x: -14%; --y: 0%; }
-  .client-phone--2 { --x: 56%;  --y: 25%; }
-  .client-phone--3 { --x: -14%; --y: 50%; }
-  .client-phone--4 { --x: 56%;  --y: 75%; }
+  .client-phone--1 { left: -14%; right: auto; top: 0%; }
+  .client-phone--2 { left: 56%;  right: auto; top: 25%; }
+  .client-phone--3 { left: -14%; right: auto; top: 50%; }
+  .client-phone--4 { left: 56%;  right: auto; top: 75%; }
   .client-grid > li { flex: 1 1 100%; }
   .client-grid { --tab-pad-y: var(--space-sm); --tab-pad-x: var(--space-sm); }
   /* larger text on phones */
