@@ -42,9 +42,9 @@ title: Digital Marketing Strategy
 <!-- Block 2 -->
 <section class="text-block measure blobbed blob--md blob-right blob-overlap style-frost">
   <h3>Your online voice defines you.</h3>
-  <p>Your website, your socials, your copy and your image, all make up your unique online voice.
-  Your online voice is your ambassador, a truthful representative of your project,
-  your organisation, and your team behind it all.</p>
+  <p>Your website, socials, copy and general image, make up your unique online voice.
+  This is your ambassador, a truthful representative of your project
+  or organisation, and the team behind it all.</p>
 
   <!-- CTA for block 2 -->
   <div class="cta-group">
@@ -164,11 +164,10 @@ title: Digital Marketing Strategy
 
 
   <div class="text-block measure  blobbed blob--lg style-brick ivory">
-    <p class="blob-extra" aria-hidden="true" style="--blob3-w:280px; --blob3-h:200px; --blob3-left:65%; --blob3-top:-30px;">
-  <h3>Together we can define your goals.</h3>
-  <p>We can tailor your online presence to fit your mission's narrative
-  and leverage the force of AI to your benefit. Are you interested?</p>
-  </p>
+    <i class="blob-extra" aria-hidden="true" style="--blob3-w:280px; --blob3-h:200px; --blob3-left:65%; --blob3-top:-30px;"></i>
+<h3>Together we can define your goals.</h3>
+<p>We can tailor your online presence to fit your mission's narrative
+and leverage the force of AI to your benefit. Are you interested?</p>
 
   <div class="cta-group">
     <a class="cta" href="mailto:oaao213@gmail.com" target="_blank" rel="noopener">Book a free consultation.</a>
@@ -177,6 +176,13 @@ title: Digital Marketing Strategy
   </div>
 </section>
 
+<!-- Clients -->
+<section class="home-section-highlight measure">
+  <h3>Clients</h3>
+  <p class="highlight-list">
+    {% include client-links.html %}
+  </p>
+</section>
 
 <!-- Co-founded Platforms -->
 <section class="home-section-highlight measure">
