@@ -1239,7 +1239,7 @@ body::before {
 /* hover keeps the stacking: the hovered tab stays under the tab below */
 /* one big black back tab behind each column; peeks out above the first tab
    and runs down under the band's bottom edge with the last row */
-.client-grid { position: relative; --back-peek: 16px; --back-out: 30px; --col-gap: calc(2 * var(--back-out) + var(--space-md)); }   /* back tab: taller and much wider than the cards */
+.client-grid { position: relative; --back-peek: 16px; --back-out: 60px; --back-in: 12px; --col-gap: calc(2 * var(--back-in) + var(--space-xl));   /* wide on the outer sides, slim towards the middle */ }   /* back tab: taller and much wider than the cards */
 .client-grid::before,
 .client-grid::after {
   content: "";
@@ -1247,7 +1247,7 @@ body::before {
   z-index: 0;                   /* behind every tab (tabs start at z-index 2) */
   top: calc(-1 * var(--back-peek));
   bottom: calc(-1 * var(--sink));
-  width: calc((100% - var(--col-gap)) / 2 + 2 * var(--back-out));
+  width: calc((100% - var(--col-gap)) / 2 + var(--back-out) + var(--back-in));
   /* black glass: dark gradient + sheen + bright edges */
   background:
     linear-gradient(125deg, rgba(255,255,255,.14) 0%, rgba(255,255,255,.03) 35%, rgba(255,255,255,0) 60%, rgba(255,255,255,.06) 100%),
@@ -1359,7 +1359,7 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
   .client-grid > li:nth-child(11){z-index:11}
   .client-grid > li:nth-child(12){z-index:12}
   /* one column: a single back tab */
-  .client-grid { --back-out: 14px; margin-inline: var(--back-out); }   /* keep the back tab inside the band */
+  .client-grid { --back-out: 14px; --back-in: 14px; margin-inline: var(--back-out); }   /* keep the back tab inside the band */
   .client-grid::before { width: calc(100% + 2 * var(--back-out)); }
   .client-grid::after { display: none; }
   .client-grid > li { flex: 1 1 100%; }
