@@ -3,11 +3,8 @@ layout: default
 title: Digital Marketing Strategy
 ---
 
-<!-- Top visual shape -->
-<div class="top-arc"></div>
-
 <!-- Intro title + tagline -->
-<div class="measure blobbed blob--md blob-center style-brick ivory">
+<div class="measure blobbed blob-center style-brick ivory hero-blob">
   <h1 class="blurb">athanasios.co</h1>
   <p class="blurb">
     <small>

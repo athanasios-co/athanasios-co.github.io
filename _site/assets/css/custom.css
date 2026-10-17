@@ -1405,3 +1405,14 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
   padding-inline: 5%;
   box-sizing: border-box;
 }
+
+/* Header ivory blob: no extra section margin, sized to the title, clearly visible */
+.hero-blob { margin-block: 0; }
+.blobbed.style-brick.ivory.hero-blob::before {
+  top: -24px;
+  bottom: -24px;
+  height: auto;
+  width: min(640px, 100%);
+  opacity: .9;
+  mix-blend-mode: normal;
+}
