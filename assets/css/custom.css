@@ -1455,30 +1455,6 @@ body { position: relative; z-index: 0; }   /* lets the thread sit above the page
   background: #E3120B;          /* square ends, no caps */
   pointer-events: none;
 }
-/* where the thread hits the clients section "wall": red screen-print ink grain,
-   spreading upward and outside the section, fading out */
-.red-thread-ink {
-  position: absolute;
-  z-index: -1;
-  width: 100vw;                        /* full width of the clients section */
-  height: 90px;
-  left: 0 !important;                  /* edge to edge, regardless of the thread's x */
-  transform: translateY(-100%);        /* bottom edge sits on the section's top edge */
-  pointer-events: none;
-  /* soft shadow-like wash rising off the edge, with screen-print grain */
-  background:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .89 0 0 0 0 .07 0 0 0 0 .04 0 0 0 1.7 -.6'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E") 0 0 / 220px 220px,
-    linear-gradient(to top, rgba(227,18,11,.22), rgba(227,18,11,0));
-  /* fade upward and towards both ends */
-  -webkit-mask-image:
-    linear-gradient(to top, #000 0%, rgba(0,0,0,.5) 45%, transparent 100%),
-    linear-gradient(#000, #000);
-  -webkit-mask-composite: source-in;
-          mask-image:
-    linear-gradient(to top, #000 0%, rgba(0,0,0,.5) 45%, transparent 100%),
-    linear-gradient(#000, #000);
-          mask-composite: intersect;
-}
 
 /* Strategic Growth: mild frosted panel behind the section; the red thread runs behind it, blurred.
    The two grey screen blobs stay on top of the panel. */
