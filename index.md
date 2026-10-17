@@ -107,7 +107,7 @@ title: Digital Marketing Strategy
 
 <!-- Block 3 -->
 
-<section class="text-block measure blobbed blob--md blob-right">
+<section class="text-block measure blobbed blob--md blob-right blob-fit">
 
   <h3>AI tools and SEO</h3>
   <p>AI and SEO can jointly amplify your unique message. Correct use of AI tools brings brilliant results.</p>

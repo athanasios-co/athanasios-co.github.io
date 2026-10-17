@@ -1366,6 +1366,7 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
   .client-grid > li:nth-child(11){z-index:11}
   .client-grid > li:nth-child(12){z-index:12}
   .client-phone { width: 58vw; }
+  .client-band > h3 { margin-top: 5vh; }   /* "Clients" a bit lower on phones */
   /* mobile: phones sit ~5% lower */
   .client-phone--1 { top: 9%; }
   .client-phone--2 { top: 51%; }
@@ -1393,4 +1394,14 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
   font-size: .72rem;
   letter-spacing: .02em;
   color: rgba(0,0,0,.55);
+}
+
+/* Panel grows with its text, so the last line stays on the background panel */
+.blobbed.blob-fit::before { height: auto; bottom: -24px; }
+
+/* 5% side breathing room for all text panels (not the clients section or footer tabs) */
+.measure:not(.home-section-highlight),
+.text-block {
+  padding-inline: 5%;
+  box-sizing: border-box;
 }
