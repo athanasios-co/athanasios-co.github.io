@@ -1460,8 +1460,8 @@ body { position: relative; z-index: 0; }   /* lets the thread sit above the page
 .red-thread-ink {
   position: absolute;
   z-index: -1;
-  width: min(220px, 55vw);   /* tighter spread */
-  height: 100px;
+  width: min(380px, 80vw);   /* wide and low: spreads sideways along the edge */
+  height: 70px;
   transform: translate(-50%, -100%);   /* bottom edge sits on the section's top edge */
   pointer-events: none;
   background:
