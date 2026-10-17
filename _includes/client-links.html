@@ -1,3 +1,4 @@
+{%- comment -%} Menu: each client links to its card in the clients section on the homepage {%- endcomment -%}
 {%- for c in site.data.clients -%}
-<a href="{{ c.url }}"{% if c.aria %} aria-label="{{ c.aria }}"{% endif %}{% if c.url != '#' %} target="_blank" rel="noopener"{% endif %}>{{ c.name }}</a>
+<a href="{{ '/' | relative_url }}#client-{{ c.name | slugify }}">{{ c.name }}</a>
 {% endfor -%}

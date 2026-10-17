@@ -7,7 +7,7 @@
   <ul class="client-grid">
     {%- for c in site.data.clients %}
     {%- assign meta = c.tag | default: '' -%}
-    <li>
+    <li id="client-{{ c.name | slugify }}">
       {%- if c.url != '#' %}
       <a class="client-tile" href="{{ c.url }}"{% if c.aria %} aria-label="{{ c.aria }}"{% endif %} target="_blank" rel="noopener">
         <span class="client-tile__name">{{ c.name }}</span>

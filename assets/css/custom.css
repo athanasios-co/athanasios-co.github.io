@@ -1503,3 +1503,6 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
   .custom-nav .items a { font-size: 0.9975rem; }
   .menu-foot { font-size: 0.6825rem; }
 }
+/* menu -> client card: land with a little space above and briefly mark the card */
+.client-grid > li { scroll-margin-top: var(--space-xl); }
+.client-grid > li:target .client-tile { outline: 2px solid var(--color-accent); outline-offset: 3px; }
