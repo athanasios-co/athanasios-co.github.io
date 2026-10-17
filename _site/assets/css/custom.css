@@ -1366,7 +1366,7 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
   .client-phone--1 { top: 9%; }
   .client-phone--4 { top: 55%; }
   .client-grid > li { flex: 1 1 100%; }
-  .client-grid { --tab-pad-y: calc(var(--space-sm) + 16px); --tab-pad-x: var(--space-sm); }   /* a bit more room above the name */
+  .client-grid { --tab-pad-y: calc(var(--space-sm) + 16px); --tab-pad-x: calc(var(--space-sm) + 5%); }   /* +5% side breathing room */   /* a bit more room above the name */
   .client-grid { width: 85.5%; margin-inline: auto; }   /* cards narrower on phones */
   /* larger text on phones */
   .client-tile__name { font-size: calc(1.15rem + 2px); }
