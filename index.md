@@ -7,7 +7,7 @@ title: Digital Marketing Strategy
 <div class="top-arc"></div>
 
 <!-- Intro title + tagline -->
-<div class="measure">
+<div class="measure blobbed blob--md blob-center style-brick ivory">
   <h1 class="blurb">athanasios.co</h1>
   <p class="blurb">
     <small>
