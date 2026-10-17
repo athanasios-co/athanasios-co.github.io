@@ -1438,3 +1438,9 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
   -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 6px 20px rgba(0,0,0,.06);
 }
+
+/* Header panels on phones: second panel starts lower (not in the top corner); ivory's right edge visible */
+@media (max-width: 600px){
+  .hero-blob::after { top: 22px; }   /* keep the overlap, but no grey corner up by the menu button */
+  .blobbed.style-brick.ivory.hero-blob::before { width: calc(100vw + 30px - 24px); }   /* ends 24px before the right edge */
+}
