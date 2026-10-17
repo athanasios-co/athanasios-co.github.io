@@ -153,7 +153,7 @@
 
   <!-- CTA under the blurb -->
   <div class="cta-group">
-    <a class="cta" href="mailto:oaao213@gmail.com" target="_blank" rel="noopener">Let's talk strategy</a>
+    <a class="cta" href="mailto:oaao213@gmail.com" target="_blank" rel="noopener" data-thread-start="">Let's talk strategy</a>
   </div>
 </div>
 
@@ -331,6 +331,32 @@ and leverage the force of AI to your benefit. Are you interested?</p>
   </p>
 </section>
 <hr class="hr-shadow" />
+
+<!-- Red thread: straight vertical line from the "Let's talk strategy" button down to the clients section.
+     Positioned by a few lines of JS so it follows the page at any screen size. -->
+<div class="red-thread" aria-hidden="true"></div>
+<script>
+(function () {
+  var line = document.querySelector('.red-thread');
+  var start = document.querySelector('[data-thread-start]');
+  var band = document.querySelector('.client-band');
+  if (!line || !start || !band) return;
+  function place() {
+    var r = start.getBoundingClientRect(), b = band.getBoundingClientRect();
+    var sx = window.scrollX || 0, sy = window.scrollY || 0;
+    var x = r.left + r.width / 2 + sx, top = r.bottom + sy, bottom = b.top + sy + 2;
+    line.style.left = x + 'px';
+    line.style.top = top + 'px';
+    line.style.height = Math.max(0, bottom - top) + 'px';
+    band.style.setProperty('--thread-x', (x - b.left - sx) + 'px');
+  }
+  place();
+  window.addEventListener('load', place);
+  window.addEventListener('resize', place);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(place);
+  if ('ResizeObserver' in window) new ResizeObserver(place).observe(document.body);
+})();
+</script>
 
 
     </section>
