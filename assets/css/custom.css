@@ -1477,7 +1477,7 @@ body { position: relative; z-index: 0; }   /* lets the thread sit above the page
 .strategy-focus::before {
   content: "";
   position: absolute;
-  inset: calc(-1 * var(--space-lg));
+  inset: calc(-1 * var(--space-xs)) 6%;   /* smaller: hugs the content, pulled in at the sides */
   z-index: -4;                    /* below the grey screens (-3) */
   pointer-events: none;
   border-radius: var(--blob-radius);
