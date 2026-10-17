@@ -5,7 +5,6 @@ title: Digital Marketing Strategy
 
 <!-- Intro title + tagline -->
 <div class="measure blobbed blob-center style-brick ivory hero-blob">
-  <span class="hero-screen" aria-hidden="true"></span>
   <h1 class="blurb">athanasios.co</h1>
   <p class="blurb">
     <small>
