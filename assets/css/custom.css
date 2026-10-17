@@ -1372,11 +1372,11 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
   .client-phone--3 { top: 7%; }
   .client-phone--4 { top: 55%; }
   .client-grid > li { flex: 1 1 100%; }
-  .client-grid { --tab-pad-y: calc(var(--space-sm) + 8px); --tab-pad-x: var(--space-sm); }   /* a bit more room above the name */
+  .client-grid { --tab-pad-y: calc(var(--space-sm) + 16px); --tab-pad-x: var(--space-sm); }   /* a bit more room above the name */
   .client-grid { width: 90%; margin-inline: auto; }   /* cards 10% narrower on phones */
   /* larger text on phones */
   .client-tile__name { font-size: calc(1.15rem + 2px); }
-  .client-tile__desc { font-size: .95rem; }
+  .client-tile__desc { font-size: .95rem; margin-top: calc(var(--space-sm) + 8px); }   /* more room under the name */
   .client-tile__meta { font-size: .72rem; }
   .client-tile__name { white-space: normal; }
 }
