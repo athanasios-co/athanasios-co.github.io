@@ -155,7 +155,7 @@ title: Digital Marketing Strategy
       </div>
 
       <div class="cta-group">
-        <a class="cta" href="mailto:oaao213@gmail.com" target="_blank" rel="noopener">Let's set your KPIs</a>
+        <a class="cta cta--accent" href="mailto:oaao213@gmail.com" target="_blank" rel="noopener">Let's set your KPIs</a>
       </div>
       <i class="screen screen--grey-3 screen--glass"
          style="--screen-w:360px; --screen-h:220px; --screen-top:-70px; --screen-left:68%;"></i>
