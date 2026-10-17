@@ -1472,3 +1472,18 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
 }
 /* a bit more space under "athanasios.co" */
 .hero-blob h1 { margin-bottom: calc(clamp(0.5rem, 1.2vw, 1rem) + 12px); }
+
+/* Footer tabs (Clients / Co-founded platforms): everything at half size, width unchanged */
+.home-section-highlight {
+  padding: 13px 22px 11px 18px;
+  border-top-width: 2px;
+  border-radius: 10px 16px 0 0;
+}
+.home-section-highlight h3 { font-size: .58rem; margin-bottom: 3px; }
+.highlight-list { font-size: .58rem; }
+.home-section-highlight + .home-section-highlight { margin-top: calc(var(--space-xl) / 2); }
+@media (max-width: 600px) {
+  .home-section-highlight { padding: 10px 14px 9px 12px; border-radius: 8px 12px 0 0; }
+  .home-section-highlight h3,
+  .highlight-list { font-size: .53rem; }
+}
