@@ -1497,3 +1497,9 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
   border-top: none;                          /* the shadow line is the divider */
 }
 .wrapper { padding-bottom: var(--space-md); }   /* less space under the credit */
+/* mobile: menu text 5% larger */
+@media (max-width: 720px){
+  .custom-nav .title { font-size: 1.05rem; }
+  .custom-nav .items a { font-size: 0.9975rem; }
+  .menu-foot { font-size: 0.6825rem; }
+}
