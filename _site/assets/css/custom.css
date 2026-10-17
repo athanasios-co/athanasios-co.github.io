@@ -1223,7 +1223,7 @@ body::before {
   justify-content: center;
   align-items: stretch;         /* equal-height tabs on a shared baseline */
   gap: 0 var(--col-gap);
-  max-width: 1140px;   /* wider client cards (~10% wider again) */
+  max-width: 1085px;   /* client card columns (5% narrower than 1140) */
   margin: 0 auto;
   padding: 0;
   list-style: none;
@@ -1369,7 +1369,7 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
   .client-phone--4 { top: 55%; }
   .client-grid > li { flex: 1 1 100%; }
   .client-grid { --tab-pad-y: calc(var(--space-sm) + 16px); --tab-pad-x: var(--space-sm); }   /* a bit more room above the name */
-  .client-grid { width: 90%; margin-inline: auto; }   /* cards 10% narrower on phones */
+  .client-grid { width: 85.5%; margin-inline: auto; }   /* cards narrower on phones */
   /* larger text on phones */
   .client-tile__name { font-size: calc(1.15rem + 2px); }
   .client-tile__desc { font-size: .95rem; margin-top: calc(var(--space-sm) + 8px); }   /* more room under the name */
