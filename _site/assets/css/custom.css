@@ -1202,7 +1202,8 @@ body::before {
     linear-gradient(160deg, #e2ded7 0%, #d3cec6 100%);
   box-shadow: none;
   position: relative;
-  overflow: hidden;            /* crops the giant aA at the edges */
+  overflow: hidden;            /* fallback for old browsers */
+  overflow: clip;              /* crops phones and tab bodies, but can't be scrolled by anchor links */
   isolation: isolate;
 }
 .client-band > .client-grid { position: relative; }
@@ -1503,6 +1504,5 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
   .custom-nav .items a { font-size: 0.9975rem; }
   .menu-foot { font-size: 0.6825rem; }
 }
-/* menu -> client card: land with a little space above and briefly mark the card */
+/* menu -> client card: land with a little space above the card */
 .client-grid > li { scroll-margin-top: var(--space-xl); }
-.client-grid > li:target .client-tile { outline: 2px solid var(--color-accent); outline-offset: 3px; }
