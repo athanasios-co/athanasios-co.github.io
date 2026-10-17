@@ -1466,3 +1466,7 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
 .custom-nav a.title--link { color: var(--color-accent); text-decoration: none; }
 .custom-nav a.title--link:hover { color: var(--accent-hover); }
 #clients { scroll-margin-top: var(--space-lg); }
+/* desktop: client links in the menu 2px smaller */
+@media (min-width: 721px){
+  .custom-nav .items a { font-size: calc(clamp(0.95rem, 1vw, 1.1rem) - 2px); }
+}
