@@ -1409,13 +1409,15 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
 /* Header ivory blob: no extra section margin, sized to the title, clearly visible */
 .hero-blob { margin-block: calc(var(--space-xl) + 10px) var(--space-xl); }   /* room for the panels above the title */
 .blobbed.style-brick.ivory.hero-blob::before {
-  /* off-centre: pulled to the left and a little higher */
+  /* starts off-screen on the left, ends right of centre */
   top: -34px;
   bottom: -10px;
   height: auto;
-  left: 50%;
-  transform: translateX(-62%);
-  width: min(560px, 92%);
+  left: calc(50% - 50vw - 30px);
+  right: auto;
+  transform: none;
+  width: calc(50vw + 230px);
+  max-width: none;
   opacity: .9;
   mix-blend-mode: normal;
 }
@@ -1425,11 +1427,13 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
   position: absolute;
   z-index: -2;
   pointer-events: none;
+  /* starts left of centre and runs off-screen on the right */
   top: 22px;
   bottom: -46px;
-  left: 50%;
-  transform: translateX(-14%);
-  width: min(420px, 70%);
+  left: auto;
+  right: calc(50% - 50vw - 30px);
+  transform: none;
+  width: calc(50vw + 20px);
   border-radius: var(--blob-radius);
   background: rgba(255,255,255,.45);
   border: 1px solid rgba(255,255,255,.6);
