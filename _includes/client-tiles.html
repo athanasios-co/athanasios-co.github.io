@@ -26,3 +26,26 @@
   </ul>
   </div>
 </section>
+<script>
+/* When arriving at a client card from the menu (#client-…), scroll so the card's visible part
+   sits in the middle of the screen. The card's body runs on behind the cards below it,
+   so we centre on its text (name, description, tag), not its full box. */
+(function () {
+  function centre() {
+    var id = decodeURIComponent(location.hash.slice(1));
+    if (id.indexOf('client-') !== 0) return;
+    var li = document.getElementById(id);
+    if (!li) return;
+    var tile = li.querySelector('.client-tile');
+    var last = tile && tile.lastElementChild;
+    if (!last) return;
+    var top = li.getBoundingClientRect().top + window.scrollY;
+    var bottom = last.getBoundingClientRect().bottom + window.scrollY + 16;
+    var target = (top + bottom) / 2 - window.innerHeight / 2;
+    window.scrollTo({ top: Math.max(0, target), behavior: 'auto' });
+  }
+  window.addEventListener('hashchange', function () { requestAnimationFrame(centre); });
+  window.addEventListener('load', function () { requestAnimationFrame(centre); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(centre);
+})();
+</script>
