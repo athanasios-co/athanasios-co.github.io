@@ -1477,13 +1477,16 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
 .home-section-highlight {
   padding: 18px 30px 15px 24px;
   border-top-width: 2px;
-  border-radius: 14px 22px 0 0;
+  border-left: 1px solid var(--color-text);   /* same thin lining on both sides */
+  border-radius: 22px 22px 0 0;
+  margin-top: -44px;                          /* halves the gap to the blob panel above */
 }
+.home-section-highlight + hr.hr-shadow { margin-top: var(--space-sm); }   /* shadow line closer to the tab */
 .home-section-highlight h3 { font-size: .8rem; margin-bottom: 4px; }
 .highlight-list { font-size: .8rem; }
 .home-section-highlight + .home-section-highlight { margin-top: calc(var(--space-xl) / 2); }
 @media (max-width: 600px) {
-  .home-section-highlight { padding: 14px 20px 12px 16px; border-radius: 12px 18px 0 0; }
+  .home-section-highlight { padding: 14px 20px 12px 16px; border-radius: 18px 18px 0 0; margin-top: -82px; }
   .home-section-highlight h3,
   .highlight-list { font-size: .75rem; }
 }
@@ -1493,3 +1496,4 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
   padding-top: 0;
   border-top: none;                          /* the shadow line is the divider */
 }
+.wrapper { padding-bottom: var(--space-md); }   /* less space under the credit */
