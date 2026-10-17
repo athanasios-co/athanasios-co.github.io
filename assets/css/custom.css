@@ -1264,7 +1264,6 @@ body::before {
   pointer-events: none;
 }
 .client-phone--1 { left: 3%;  top: 4%;  transform: rotate(-14deg); }
-.client-phone--2 { left: 28%; top: 46%; transform: perspective(900px) rotateY(22deg) rotate(9deg); }
 .client-phone--4 { right: 2%; top: 50%; transform: rotate(17deg); }
 .client-grid { --tab-pad-y: var(--space-lg); --tab-pad-x: var(--space-lg); --tab-overlap: 0px; --sink: 2000px;   /* every tab runs down this far; the band clips them all at its bottom edge */ }
 /* rows tuck under the next row, like tiers of dividers */
@@ -1365,7 +1364,6 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
   .client-band > h3 { margin-top: 5vh; }   /* "Clients" a bit lower on phones */
   /* mobile: phones sit ~5% lower */
   .client-phone--1 { top: 9%; }
-  .client-phone--2 { top: 51%; }
   .client-phone--4 { top: 55%; }
   .client-grid > li { flex: 1 1 100%; }
   .client-grid { --tab-pad-y: calc(var(--space-sm) + 16px); --tab-pad-x: var(--space-sm); }   /* a bit more room above the name */
