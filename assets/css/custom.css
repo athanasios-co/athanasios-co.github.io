@@ -1225,7 +1225,7 @@ body::before {
   justify-content: center;
   align-items: stretch;         /* equal-height tabs on a shared baseline */
   gap: 0 var(--col-gap);
-  max-width: 840px;
+  max-width: 1140px;   /* wider client cards (~10% wider again) */
   margin: 0 auto;
   padding: 0;
   list-style: none;
@@ -1366,8 +1366,14 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
   .client-grid > li:nth-child(11){z-index:11}
   .client-grid > li:nth-child(12){z-index:12}
   .client-phone { width: 58vw; }
+  /* mobile: phones sit ~5% lower */
+  .client-phone--1 { top: 9%; }
+  .client-phone--2 { top: 51%; }
+  .client-phone--3 { top: 7%; }
+  .client-phone--4 { top: 55%; }
   .client-grid > li { flex: 1 1 100%; }
-  .client-grid { --tab-pad-y: var(--space-sm); --tab-pad-x: var(--space-sm); }
+  .client-grid { --tab-pad-y: calc(var(--space-sm) + 8px); --tab-pad-x: var(--space-sm); }   /* a bit more room above the name */
+  .client-grid { width: 90%; margin-inline: auto; }   /* cards 10% narrower on phones */
   /* larger text on phones */
   .client-tile__name { font-size: calc(1.15rem + 2px); }
   .client-tile__desc { font-size: .95rem; }
