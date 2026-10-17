@@ -58,7 +58,7 @@ title: Digital Marketing Strategy
 
   <!-- CTA under the blurb -->
   <div class="cta-group">
-    <a class="cta" href="mailto:oaao213@gmail.com" target="_blank" rel="noopener" data-thread-start>Let's talk strategy</a>
+    <a class="cta cta--red" href="mailto:oaao213@gmail.com" target="_blank" rel="noopener">Let's talk strategy</a>
   </div>
 </div>
 
@@ -192,5 +192,3 @@ and leverage the force of AI to your benefit. Are you interested?</p>
   </p>
 </section>
 <hr class="hr-shadow">
-
-{% include red-thread.html %}

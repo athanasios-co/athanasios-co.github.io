@@ -403,6 +403,9 @@ ul, ol {
 /* Magnify on hover */
 .cta:hover { transform: scale(1.06); opacity: 0.85; }
 
+/* Red border ("Let's talk strategy") */
+.cta--red { border-color: #E3120B; }
+
 /* Accent */
 .cta--accent { border-color: var(--color-accent); color: var(--color-accent); }
 .cta--accent:hover {
@@ -1445,17 +1448,6 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
   .blobbed.style-brick.ivory.hero-blob::before { width: calc(100vw + 30px - 24px); }   /* ends 24px before the right edge */
 }
 
-/* Red thread: straight line from "Let's talk strategy" down behind every section to the clients band */
-body { position: relative; z-index: 0; }   /* lets the thread sit above the page background but behind content */
-.red-thread {
-  position: absolute;
-  z-index: -1;                  /* behind all sections and panels */
-  width: 3px;
-  margin-left: -1.5px;
-  background: #E3120B;          /* square ends, no caps */
-  pointer-events: none;
-}
-
 /* Strategic Growth: mild frosted panel behind the section; the red thread runs behind it, blurred.
    The two grey screen blobs stay on top of the panel. */
 .strategy-focus {
@@ -1470,12 +1462,8 @@ body { position: relative; z-index: 0; }   /* lets the thread sit above the page
   z-index: -4;                    /* below the grey screens (-3) */
   pointer-events: none;
   border-radius: var(--blob-radius);
-  /* same colour as the clients section, slightly see-through so the thread shows blurred */
-  background:
-    radial-gradient(55% 75% at 15% 20%, rgba(150,142,130,.30) 0%, transparent 65%),
-    radial-gradient(50% 70% at 85% 80%, rgba(120,114,106,.25) 0%, transparent 65%),
-    linear-gradient(160deg, rgba(226,222,215,.88) 0%, rgba(211,206,198,.88) 100%);
-  border: none;
+  background: rgba(255,255,255,.35);
+  border: 1px solid rgba(255,255,255,.5);
   backdrop-filter: blur(10px) saturate(1.05);
   -webkit-backdrop-filter: blur(10px) saturate(1.05);
   box-shadow: 0 10px 28px rgba(0,0,0,.05);
