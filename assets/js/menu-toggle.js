@@ -35,6 +35,15 @@ function closePanel(){
 
   btn.addEventListener('click', toggle);
 
+  // Close the panel when a same-page anchor link inside it is clicked (e.g. ".clients" -> #clients),
+  // so the page can scroll to that section
+  panel.addEventListener('click', (e)=>{
+    const a = e.target.closest('a[href*="#"]');
+    if(a && a.hash && a.pathname === location.pathname && btn.getAttribute('aria-expanded') === 'true'){
+      closePanel();
+    }
+  });
+
   // Close on Escape
   document.addEventListener('keydown', (e)=>{
     if(e.key === 'Escape' && btn.getAttribute('aria-expanded') === 'true'){

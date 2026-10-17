@@ -1461,3 +1461,8 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
   -webkit-backdrop-filter: blur(10px) saturate(1.05);
   box-shadow: 0 10px 28px rgba(0,0,0,.05);
 }
+
+/* ".clients" heading in the menu: blue, links down to the clients section */
+.custom-nav a.title--link { color: var(--color-accent); text-decoration: none; }
+.custom-nav a.title--link:hover { color: var(--accent-hover); }
+#clients { scroll-margin-top: var(--space-lg); }
