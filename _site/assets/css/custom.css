@@ -1409,8 +1409,8 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
 /* Header ivory blob: no extra section margin, sized to the title, clearly visible */
 .hero-blob { margin-block: calc(var(--space-xl) + 10px) var(--space-xl); }   /* room for the panels above the title */
 .blobbed.style-brick.ivory.hero-blob::before {
-  /* starts off-screen on the left, ends right of centre */
-  top: -34px;
+  /* starts off-screen top-left, ends right of centre */
+  top: -400px;                   /* runs up past the top of the screen */
   bottom: -10px;
   height: auto;
   left: calc(50% - 50vw - 30px);
@@ -1427,8 +1427,8 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
   position: absolute;
   z-index: -2;
   pointer-events: none;
-  /* starts left of centre and runs off-screen on the right */
-  top: 22px;
+  /* comes in from off-screen top-right; bottom edge unchanged */
+  top: -400px;
   bottom: -46px;
   left: auto;
   right: calc(50% - 50vw - 30px);
@@ -1440,4 +1440,24 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 6px 20px rgba(0,0,0,.06);
+}
+
+/* large glossy black screen behind the header panels */
+.hero-screen {
+  position: absolute;
+  z-index: -3;
+  pointer-events: none;
+  top: -140px;
+  left: 50%;
+  width: min(980px, 92vw);
+  aspect-ratio: 12 / 5;          /* 2/3 the height of a 16:10 screen */
+  transform: translateX(-38%);   /* straight, slightly right of centre */
+  border-radius: 22px;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.08) 0%, rgba(255,255,255,.035) 40%, rgba(255,255,255,0) 40.5%),
+    linear-gradient(180deg, #111113 0%, #040405 100%);
+  box-shadow:
+    inset 0 0 0 6px #1d1d20,
+    inset 0 0 0 7px rgba(255,255,255,.10),
+    0 16px 32px rgba(0,0,0,.16);
 }
