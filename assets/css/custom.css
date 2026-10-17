@@ -403,9 +403,6 @@ ul, ol {
 /* Magnify on hover */
 .cta:hover { transform: scale(1.06); opacity: 0.85; }
 
-/* Red border ("Let's talk strategy") */
-.cta--red { border-color: #E3120B; }
-
 /* Accent */
 .cta--accent { border-color: var(--color-accent); color: var(--color-accent); }
 .cta--accent:hover {
