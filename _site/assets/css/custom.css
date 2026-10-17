@@ -1407,12 +1407,33 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
 }
 
 /* Header ivory blob: no extra section margin, sized to the title, clearly visible */
-.hero-blob { margin-block: 0; }
+.hero-blob { margin-block: calc(var(--space-xl) + 10px) var(--space-xl); }   /* room for the panels above the title */
 .blobbed.style-brick.ivory.hero-blob::before {
-  top: -24px;
-  bottom: -24px;
+  /* off-centre: pulled to the left and a little higher */
+  top: -34px;
+  bottom: -10px;
   height: auto;
-  width: min(640px, 100%);
+  left: 50%;
+  transform: translateX(-62%);
+  width: min(560px, 92%);
   opacity: .9;
   mix-blend-mode: normal;
+}
+/* second panel: frosted, offset to the right and lower, tucked behind */
+.hero-blob::after {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  pointer-events: none;
+  top: 22px;
+  bottom: -46px;
+  left: 50%;
+  transform: translateX(-14%);
+  width: min(420px, 70%);
+  border-radius: var(--blob-radius);
+  background: rgba(255,255,255,.45);
+  border: 1px solid rgba(255,255,255,.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 6px 20px rgba(0,0,0,.06);
 }
