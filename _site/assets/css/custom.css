@@ -1473,17 +1473,17 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
 /* a bit more space under "athanasios.co" */
 .hero-blob h1 { margin-bottom: calc(clamp(0.5rem, 1.2vw, 1rem) + 12px); }
 
-/* Footer tabs (Clients / Co-founded platforms): everything at half size, width unchanged */
+/* Footer tab (Co-founded platforms): compact, width unchanged */
 .home-section-highlight {
-  padding: 13px 22px 11px 18px;
+  padding: 18px 30px 15px 24px;
   border-top-width: 2px;
-  border-radius: 10px 16px 0 0;
+  border-radius: 14px 22px 0 0;
 }
-.home-section-highlight h3 { font-size: .58rem; margin-bottom: 3px; }
-.highlight-list { font-size: .58rem; }
+.home-section-highlight h3 { font-size: .8rem; margin-bottom: 4px; }
+.highlight-list { font-size: .8rem; }
 .home-section-highlight + .home-section-highlight { margin-top: calc(var(--space-xl) / 2); }
 @media (max-width: 600px) {
-  .home-section-highlight { padding: 10px 14px 9px 12px; border-radius: 8px 12px 0 0; }
+  .home-section-highlight { padding: 14px 20px 12px 16px; border-radius: 12px 18px 0 0; }
   .home-section-highlight h3,
-  .highlight-list { font-size: .53rem; }
+  .highlight-list { font-size: .75rem; }
 }

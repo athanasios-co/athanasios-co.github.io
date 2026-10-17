@@ -175,14 +175,6 @@ and leverage the force of AI to your benefit. Are you interested?</p>
   </div>
 </section>
 
-<!-- Clients -->
-<section class="home-section-highlight measure">
-  <h3>Clients</h3>
-  <p class="highlight-list">
-    {% include client-links.html %}
-  </p>
-</section>
-
 <!-- Co-founded Platforms -->
 <section class="home-section-highlight measure">
   <h3>Co-founded platforms</h3>
