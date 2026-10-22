@@ -22,7 +22,7 @@
       entries.forEach(function (e) {
         if (e.isIntersecting) { reveal(e.target); io.unobserve(e.target); }
       });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0 });
     targets.forEach(function (el) { io.observe(el); });
   } else {
     targets.forEach(reveal);
@@ -41,7 +41,7 @@
       var r = el.getBoundingClientRect();
       if (r.bottom < -200 || r.top > vh + 200) return;
       var d = (r.top + r.height / 2) - mid;          /* distance from screen centre */
-      el.style.setProperty('--drift', clamp(-d * 0.06, 25).toFixed(1) + 'px');
+      el.style.setProperty('--drift', clamp(-d * 0.1, 40).toFixed(1) + 'px');
     });
     if (band) {
       var b = band.getBoundingClientRect();
