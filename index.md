@@ -8,10 +8,10 @@ title: Digital Marketing Strategy
   <h1 class="blurb">athanasios.co</h1>
   <p class="blurb">
     <small>
-    Online Strategy |
-    Search Engine Optimisation (SEO) |
-    AI Engine Optimisation (AIEO) |
-    Publishing Consultancy |
+    Online Strategy ||
+    Search Engine Optimisation (SEO) &
+    AI Engine Optimisation (AIEO) ||
+    Publishing Consultancy
   </small></p>
 </div>
 <hr class="hr-shadow">
