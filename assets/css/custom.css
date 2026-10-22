@@ -1535,8 +1535,11 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
 }
 @media (min-width: 601px){
   .hero-services > span { white-space: nowrap; }   /* desktop: each tab stays on one line */
+  .hero-services .hs-break { margin-left: .3em; }
 }
 @media (max-width: 600px){
   .hero-services { font-size: calc(.66rem - 1px); gap: 6px; }
+  .hero-services > span { flex-direction: column; }
+  .hero-services .hs-break { margin-left: 0; }   /* "• SEO | AIEO" on its own line on phones */
   .hero-services > span { padding: 7px 10px 8px; border-radius: 0 0 9px 9px; }
 }
