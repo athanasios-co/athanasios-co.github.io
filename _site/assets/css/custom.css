@@ -1609,3 +1609,35 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
       rgba(240,238,234,.90);
   }
 }
+
+/* Client work-type tags: small solid blobs, bottom right, on the tag-line row.
+   The footer row takes over the red line from the tag line. */
+.client-tile__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding-top: var(--space-sm);
+  padding-bottom: var(--space-md);
+  border-top: 4px solid #E3120B;
+}
+.client-tile__foot .client-tile__meta { border-top: none; padding: 0; margin: 0; }
+.client-tile__work {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 4px;
+  margin-left: auto;
+  flex: 0 1 auto;
+}
+.client-tile__work > span {
+  font: 500 .5rem/1 "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  padding: 4px 8px;
+  border: 1px solid var(--blob-frost-border);
+  border-radius: 8px;
+  background: #f4f3f0;
+  box-shadow: 0 3px 8px rgba(0,0,0,.06), inset 0 1px 0 rgba(255,255,255,.9);
+  color: var(--color-text);
+  white-space: nowrap;
+}
+@media (max-width: 600px) { .client-tile__work > span { font-size: .62rem; } }

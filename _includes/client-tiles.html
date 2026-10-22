@@ -1,4 +1,4 @@
-<!-- Clients: glass tiles (data: _data/clients.yml) -->
+<!-- Clients: glass tiles (data: _data/clients.yml; optional per client: work: ["SEO", "Strategy"]) -->
 <section class="client-tiles" id="clients" aria-labelledby="client-tiles-title">
   <div class="client-band">
     <span class="client-phone client-phone--1" aria-hidden="true"></span>
@@ -12,13 +12,19 @@
       <a class="client-tile" href="{{ c.url }}"{% if c.aria %} aria-label="{{ c.aria }}"{% endif %} target="_blank" rel="noopener">
         <span class="client-tile__name">{{ c.name }}</span>
         {%- if c.description %}<span class="client-tile__desc">{{ c.description }}</span>{% endif %}
-        {%- if meta != '' %}<span class="client-tile__meta" aria-hidden="true">{{ meta }}</span>{% endif %}
+        {%- if meta != '' or c.work %}<span class="client-tile__foot">
+          {%- if meta != '' %}<span class="client-tile__meta" aria-hidden="true">{{ meta }}</span>{% endif %}
+          {%- if c.work %}<span class="client-tile__work">{% for w in c.work %}<span>{{ w }}</span>{% endfor %}</span>{% endif %}
+        </span>{% endif %}
       </a>
       {%- else %}
       <div class="client-tile is-static">
         <span class="client-tile__name">{{ c.name }}</span>
         {%- if c.description %}<span class="client-tile__desc">{{ c.description }}</span>{% endif %}
-        {%- if meta != '' %}<span class="client-tile__meta">{{ meta }}</span>{% endif %}
+        {%- if meta != '' or c.work %}<span class="client-tile__foot">
+          {%- if meta != '' %}<span class="client-tile__meta">{{ meta }}</span>{% endif %}
+          {%- if c.work %}<span class="client-tile__work">{% for w in c.work %}<span>{{ w }}</span>{% endfor %}</span>{% endif %}
+        </span>{% endif %}
       </div>
       {%- endif %}
     </li>
