@@ -1517,7 +1517,7 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
   max-width: 660px;
   margin: 0 auto;
   font-family: var(--font-base);
-  font-size: .82rem;
+  font-size: calc(.82rem - 2px);
   line-height: 1.35;
   text-align: center;
 }
@@ -1525,13 +1525,14 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 7px 14px 6px;
-  border-top: 2px solid var(--color-text);
+  padding: 6px 14px 7px;
+  /* upside-down tab: open at the top, rounded at the bottom */
+  border-bottom: 2px solid var(--color-text);
   border-left: 1px solid var(--color-text);
   border-right: 1px solid var(--color-text);
-  border-radius: 12px 12px 0 0;
+  border-radius: 0 0 12px 12px;
 }
 @media (max-width: 600px){
-  .hero-services { font-size: .66rem; gap: 4px; }
-  .hero-services > span { padding: 6px 7px 5px; border-radius: 9px 9px 0 0; }
+  .hero-services { font-size: calc(.66rem - 2px); gap: 4px; }
+  .hero-services > span { padding: 5px 7px 6px; border-radius: 0 0 9px 9px; }
 }
