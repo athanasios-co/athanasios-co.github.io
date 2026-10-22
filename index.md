@@ -9,7 +9,7 @@ title: Digital Marketing Strategy
   <p class="hero-services">
     <span>Online Strategy</span>
     <span>Search & AI Optimisation (SEO, AIEO)</span>
-    <span>Publishing Consultancy</span>
+    <span>Publishing</span>
   </p>
 </div>
 <hr class="hr-shadow">
