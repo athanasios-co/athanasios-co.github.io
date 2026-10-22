@@ -6,13 +6,11 @@ title: Digital Marketing Strategy
 <!-- Intro title + tagline -->
 <div class="measure blobbed blob-center style-brick ivory hero-blob">
   <h1 class="blurb">athanasios.co</h1>
-  <p class="blurb">
-    <small>
-    Online Strategy ||
-    Search Engine Optimisation (SEO) &
-    AI Engine Optimisation (AIEO) ||
-    Publishing Consultancy
-  </small></p>
+  <p class="hero-services">
+    <span>Online Strategy</span>
+    <span>Search Engine Optimisation (SEO)<br>AI Engine Optimisation (AIEO)</span>
+    <span>Publishing Consultancy</span>
+  </p>
 </div>
 <hr class="hr-shadow">
 
