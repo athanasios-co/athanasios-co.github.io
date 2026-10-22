@@ -1543,3 +1543,59 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
   .hero-services .hs-break { margin-left: 0; }   /* "• SEO | AIEO" on its own line on phones */
   .hero-services > span { padding: 7px 10px 8px; border-radius: 0 0 9px 9px; }
 }
+
+/* =========================================================
+   MOTION (homepage) — transform/opacity only, plays once.
+   Off entirely for "reduce motion" users; hidden states need
+   html.js-motion (set in <head>), so no-JS visitors see all.
+   ========================================================= */
+@media (prefers-reduced-motion: no-preference) {
+
+  /* 1. header panels slide in from their off-screen edges */
+  .blobbed.style-brick.ivory.hero-blob::before { animation: m-from-topleft .8s cubic-bezier(.22,.7,.2,1) both; }
+  .hero-blob::after                            { animation: m-from-right   .8s cubic-bezier(.22,.7,.2,1) .08s both; }
+  @keyframes m-from-topleft { from { translate: -100% -120px; } to { translate: 0 0; } }
+  @keyframes m-from-right   { from { translate: 100% 0; }       to { translate: 0 0; } }
+
+  /* 2. title settles in after the panels land */
+  .hero-blob h1 { animation: m-rise .6s ease-out .75s both; }
+  @keyframes m-rise { from { opacity: 0; translate: 0 8px; } to { opacity: 1; translate: 0 0; } }
+
+  /* 3 + 9. CTA buttons rise in, lift softly, settle (once) */
+  .js-motion .cta:not(.is-in) { opacity: 0; }
+  .js-motion .cta.is-in { animation: m-cta .9s cubic-bezier(.22,.7,.2,1) backwards; }
+  @keyframes m-cta {
+    0%   { opacity: 0; translate: 0 14px; }
+    65%  { opacity: 1; translate: 0 -3px; }
+    100% { opacity: 1; translate: 0 0; }
+  }
+
+  /* 4. blobs drift (value set by motion.js, max ±25px) */
+  .js-motion .blobbed:not(.hero-blob)::before,
+  .js-motion .blobbed:not(.hero-blob)::after { translate: 0 var(--drift, 0px); }
+
+  /* 5. feature cards appear one after another */
+  .js-motion .features:not(.is-in) .icon-wrap { opacity: 0; }
+  .js-motion .features.is-in .icon-wrap { animation: m-card .6s ease-out backwards; }
+  .js-motion .features.is-in .icon-wrap:nth-child(2) { animation-delay: .1s; }
+  .js-motion .features.is-in .icon-wrap:nth-child(3) { animation-delay: .2s; }
+  @keyframes m-card { from { opacity: 0; translate: 0 16px; } to { opacity: 1; translate: 0 0; } }
+
+  /* 6. icon lines draw on as each card appears */
+  .js-motion .features .heroicon path { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  .js-motion .features.is-in .heroicon path { animation: m-draw 1.1s ease-in-out .15s forwards; }
+  .js-motion .features.is-in .icon-wrap:nth-child(2) .heroicon path { animation-delay: .25s; }
+  .js-motion .features.is-in .icon-wrap:nth-child(3) .heroicon path { animation-delay: .35s; }
+  @keyframes m-draw { to { stroke-dashoffset: 0; } }
+
+  /* 7. client tabs are dealt into the stack one by one */
+  .js-motion .client-grid:not(.is-in) > li { opacity: 0; }
+  .js-motion .client-grid.is-in > li {
+    animation: m-deal .55s cubic-bezier(.22,.7,.2,1) backwards;
+    animation-delay: calc(var(--deal-i, 0) * 90ms);
+  }
+  @keyframes m-deal { from { opacity: 0; translate: 0 48px; } to { opacity: 1; translate: 0 0; } }
+
+  /* 8. phones tilt slightly with scroll (value set by motion.js, max ±4deg) */
+  .js-motion .client-phone { rotate: var(--tilt, 0deg); }
+}
