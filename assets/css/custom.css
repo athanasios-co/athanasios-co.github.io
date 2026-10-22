@@ -1402,7 +1402,7 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
 }
 
 /* Header ivory blob: no extra section margin, sized to the title, clearly visible */
-.hero-blob { margin-block: calc(var(--space-xl) + 10px) var(--space-xl); }   /* room for the panels above the title */
+.hero-blob { margin-block: calc(var(--space-xl) - 14px) var(--space-xl); }   /* title sits a little higher */
 .blobbed.style-brick.ivory.hero-blob::before {
   /* starts off-screen top-left, ends right of centre */
   top: -400px;                   /* runs up past the top of the screen */
@@ -1439,7 +1439,8 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
 
 /* Header panels on phones: second panel starts lower (not in the top corner); ivory's right edge visible */
 @media (max-width: 600px){
-  .hero-blob::after { top: 22px; }   /* keep the overlap, but no grey corner up by the menu button */
+  .hero-blob::after { top: 22px; }
+  .hero-blob { margin-top: calc(var(--space-xl) - 6px); }   /* keep the overlap, but no grey corner up by the menu button */
   .blobbed.style-brick.ivory.hero-blob::before { width: calc(100vw + 30px - 24px); }   /* ends 24px before the right edge */
 }
 
@@ -1473,7 +1474,7 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
   .custom-nav .items a { font-size: calc(clamp(0.95rem, 1vw, 1.1rem) - 2px); }
 }
 /* a bit more space under "athanasios.co" */
-.hero-blob h1 { margin-bottom: calc(clamp(0.5rem, 1.2vw, 1rem) + 12px); }
+.hero-blob h1 { margin-bottom: calc(clamp(0.5rem, 1.2vw, 1rem) + 6px); }   /* tabs a little closer to the title */
 
 /* Footer tab (Co-founded platforms): compact, width unchanged */
 .home-section-highlight {
