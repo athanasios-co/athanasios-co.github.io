@@ -1533,6 +1533,9 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
   border-right: 1px solid var(--color-text);
   border-radius: 0 0 12px 12px;
 }
+@media (min-width: 601px){
+  .hero-services > span { white-space: nowrap; }   /* desktop: each tab stays on one line */
+}
 @media (max-width: 600px){
   .hero-services { font-size: calc(.66rem - 1px); gap: 6px; }
   .hero-services > span { padding: 7px 10px 8px; border-radius: 0 0 9px 9px; }
