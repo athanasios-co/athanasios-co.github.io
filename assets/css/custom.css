@@ -1528,11 +1528,11 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
   align-items: center;
   justify-content: center;
   padding: 9px 20px 10px;
-  /* upside-down tab: open at the top, rounded at the bottom */
-  border-bottom: 2px solid var(--color-text);
-  border-left: 1px solid var(--color-text);
-  border-right: 1px solid var(--color-text);
-  border-radius: 0 0 12px 12px;
+  /* small solid blob: same look as the panels, no blur (cheap to render) */
+  border: 1px solid var(--blob-frost-border);
+  border-radius: var(--blob-radius);
+  background: #f4f3f0;
+  box-shadow: 0 6px 16px rgba(0,0,0,.06), inset 0 1px 0 rgba(255,255,255,.9);
 }
 @media (min-width: 601px){
   .hero-services > span { white-space: nowrap; }   /* desktop: each tab stays on one line */
@@ -1542,7 +1542,7 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
   .hero-services { font-size: calc(.66rem + 1px); gap: 6px; }
   .hero-services > span { flex-direction: column; }
   .hero-services .hs-break { margin-left: 0; }   /* "• SEO | AIEO" on its own line on phones */
-  .hero-services > span { padding: 7px 10px 8px; border-radius: 0 0 9px 9px; }
+  .hero-services > span { padding: 7px 10px 8px; border-radius: 12px; }
 }
 
 /* =========================================================
