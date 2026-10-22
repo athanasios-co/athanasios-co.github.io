@@ -1514,11 +1514,11 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: stretch;           /* equal-height tabs on one baseline */
-  gap: 6px;
+  gap: 10px;
   max-width: 660px;
   margin: 0 auto;
   font-family: var(--font-base);
-  font-size: calc(.82rem - 2px);
+  font-size: calc(.82rem - 1px);
   line-height: 1.35;
   text-align: center;
 }
@@ -1526,7 +1526,7 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 6px 14px 7px;
+  padding: 9px 20px 10px;
   /* upside-down tab: open at the top, rounded at the bottom */
   border-bottom: 2px solid var(--color-text);
   border-left: 1px solid var(--color-text);
@@ -1534,6 +1534,6 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
   border-radius: 0 0 12px 12px;
 }
 @media (max-width: 600px){
-  .hero-services { font-size: calc(.66rem - 2px); gap: 4px; }
-  .hero-services > span { padding: 5px 7px 6px; border-radius: 0 0 9px 9px; }
+  .hero-services { font-size: calc(.66rem - 1px); gap: 6px; }
+  .hero-services > span { padding: 7px 10px 8px; border-radius: 0 0 9px 9px; }
 }
