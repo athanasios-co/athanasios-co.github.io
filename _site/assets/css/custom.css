@@ -1386,11 +1386,11 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
   margin: 0;
   text-align: center;
   font-family: var(--font-base);
-  font-size: .66rem;
+  font-size: calc(.66rem - 2px);
   letter-spacing: .02em;
   color: rgba(0,0,0,.55);
 }
-@media (max-width: 600px) { .site-credit { font-size: .62rem; } }
+@media (max-width: 600px) { .site-credit { font-size: calc(.62rem - 2px); } }
 
 /* Panel grows with its text, so the last line stays on the background panel */
 .blobbed.blob-fit::before { height: auto; bottom: -24px; }
@@ -1559,8 +1559,8 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
   @keyframes m-from-right   { from { translate: 100% 0; }       to { translate: 0 0; } }
 
   /* 2. title settles in after the panels land */
-  .hero-blob h1 { animation: m-rise .5s ease-out .3s both; }
-  @keyframes m-rise { from { opacity: 0; translate: 0 8px; } to { opacity: 1; translate: 0 0; } }
+  .hero-blob h1 { animation: m-rise .5s cubic-bezier(.33,0,.2,1) .3s both; }
+  @keyframes m-rise { from { opacity: 0; translate: 0 5px; } to { opacity: 1; translate: 0 0; } }
 
   /* 3 + 9. CTA buttons rise in, lift softly, settle (once) */
   .js-motion .cta:not(.is-in) { opacity: 0; }
@@ -1571,7 +1571,7 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
     100% { opacity: 1; translate: 0 0; }
   }
 
-  /* 4. blobs drift (value set by motion.js, max ±40px) */
+  /* 4. blobs drift (value set by motion.js, max ±55px) */
   .js-motion .blobbed:not(.hero-blob)::before,
   .js-motion .blobbed:not(.hero-blob)::after { translate: 0 var(--drift, 0px); }
 
@@ -1592,10 +1592,10 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
   /* 7. client tabs are dealt into the stack one by one */
   .js-motion .client-grid:not(.is-in) > li { opacity: 0; }
   .js-motion .client-grid.is-in > li {
-    animation: m-deal .45s cubic-bezier(.22,.7,.2,1) backwards;
+    animation: m-deal .45s cubic-bezier(.33,0,.2,1) backwards;
     animation-delay: calc(var(--deal-i, 0) * 50ms);
   }
-  @keyframes m-deal { from { opacity: 0; translate: 0 48px; } to { opacity: 1; translate: 0 0; } }
+  @keyframes m-deal { from { opacity: 0; translate: 0 28px; } to { opacity: 1; translate: 0 0; } }
 
   /* 8. phones tilt slightly with scroll (value set by motion.js, max ±4deg) */
   .js-motion .client-phone { rotate: var(--tilt, 0deg); }
