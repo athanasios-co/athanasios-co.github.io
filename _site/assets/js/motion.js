@@ -28,9 +28,12 @@
     targets.forEach(reveal);
   }
 
-  /* 4. blob drift + 8. phone tilt: small scroll-linked offsets */
-  var blobs = document.querySelectorAll('.blobbed:not(.hero-blob)');
-  var band = document.querySelector('.client-band');
+  /* 4. blob drift: small scroll-linked offset */
+  /* plain brick blobs only, none in the KPI section (blurred glass is costly to move) */
+  var blobs = Array.prototype.filter.call(
+    document.querySelectorAll('.blobbed.style-brick:not(.hero-blob)'),
+    function (el) { return !el.closest('.bleed-host'); });
+  if (!blobs.length) return;
   var ticking = false;
   var clamp = function (v, m) { return Math.max(-m, Math.min(m, v)); };
 
@@ -43,13 +46,6 @@
       var d = (r.top + r.height / 2) - mid;          /* distance from screen centre */
       el.style.setProperty('--drift', clamp(-d * 0.14, 55).toFixed(1) + 'px');
     });
-    if (band) {
-      var b = band.getBoundingClientRect();
-      if (b.bottom > 0 && b.top < vh) {
-        var t = ((b.top + b.height / 2) - mid) / vh;  /* about -1..1 */
-        band.style.setProperty('--tilt', clamp(t * 5, 4).toFixed(2) + 'deg');
-      }
-    }
   }
   function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
   window.addEventListener('scroll', onScroll, { passive: true });
