@@ -48,8 +48,8 @@
 - name: "Nefeli Publishing & FYTA"
   url: "https://www.athanasios.co/the-black-book-of-fyta.html"
   aria: "The Black Book of FYTA, Nefeli Publishing, athanasios.co (opens in new tab)"
-  tag: "Cultural studies, epistemology, art  publishing · FYTA, Nefeli Publishing & Buckinghamshire New University · Greece, UK"
-  description: "Collection of texts on cultural studies, epistemological critique, art theory, poetics, artworks."
+  tag: "Book on cultural studies, epistemology, art · FYTA, Nefeli Publishing & Buckinghamshire New University · Greece, UK"
+  description: "Collection of texts on cultural studies, epistemological critique, art theory, artworks."
   work: ["Content", "Publishing", "Research"]
 - name: "Documena Art Politics"
   url: "https://documena.weebly.com/"
@@ -61,4 +61,4 @@
   url: "#"
   tag: "Art publishing · Berlin, Germany"
   description: "Publishing project on contemporary art theory and writing."
-  work: ["Content", "Publishing", "Research"]
+  work: ["Content", "Publishing", "Research", "Strategy"]
