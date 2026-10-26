@@ -33,12 +33,6 @@
   tag: "Pharmaceuticals · Pakistan"
   description: "Pharmaceuticals company and innovation laboratory in Pakistan rooted in publishing history, with a strong cultural stakeholder profile."
   work: ["Content", "Design", "SEO"]
-- name: "w-w-w Platform"
-  url: "https://w-w-w.io/issue-1/"
-  aria: "w-w-w Platform, art platform (opens in new tab)"
-  tag: "Online art platform · Greece"
-  description: "Experimental contemporary art and photography platform in Athens, Greece."
-  work: ["Content", "Design"]
 - name: "Futura Books & Dr. Diana Manesi"
   url: "https://futurabooks.wordpress.com/2025/11/13/1449/"
   aria: "Futura Books Dr. Diana Manesi, Athens (opens in new tab)"
@@ -57,6 +51,12 @@
   tag: "Art activism platform and campaign · Athens, GR · London, UK · Berlin, DE"
   description: "Art exhibition, online platform, social media campaign for contemporary art, activism and cultural criticism"
   work: ["Strategy", "Content", "Publishing", "Research"]
+- name: "w-w-w Platform"
+  url: "https://w-w-w.io/issue-1/"
+  aria: "w-w-w Platform, art platform (opens in new tab)"
+  tag: "Online art platform · Greece"
+  description: "Experimental contemporary art and photography platform in Athens, Greece."
+  work: ["Content", "Design"]
 - name: "Magma: Art, Politics, Poetics"
   url: "#"
   tag: "Art publishing · Berlin, Germany"
