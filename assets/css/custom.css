@@ -1685,3 +1685,8 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
   .about-me { width: auto; margin: 64px 5% calc(var(--space-lg) + 82px); }   /* platforms tab overlaps 82px on phones */   /* platforms tab overlaps 82px on phones */
   .about-me p { font-size: .95rem; }
 }
+
+/* "Let's connect" + LinkedIn icon at the end of ".a bit about me" */
+.about-me__connect a { display: inline-flex; align-items: center; gap: 8px; color: var(--color-text); font-weight: 600; }
+.about-me__connect a:hover { color: #0a66c2; opacity: 1; }
+.about-me__connect .icon-linkedin { width: 24px; height: 24px; color: #0a66c2; }
