@@ -176,11 +176,13 @@ and leverage the force of AI to your benefit. Are you interested?</p>
 <!-- A bit about me -->
 <section class="about-me measure" id="about" aria-labelledby="about-title">
   <h3 class="about-me__title" id="about-title">.a bit about me</h3>
-  <p>This is my name, Athanasios.<br>
+  <p>
   I consult my clients on publishing, online insights, impact and strategy.<br>
   I am a publishing editor, writer and researcher in the areas of cultural studies, psychoanalysis, art and politics. My passion is to promote collaboration and encourage constructive exchange across sectors, cultures and fields of knowledge.</p>
   <p>For over a decade, I have worked for advocacy NGOs in the legal sector and for non-profits in the field of cultural and migration policy. I have edited books of non-fiction, poetry, essays, and fine art.</p>
   <p>Previously, I worked for commercial art galleries and have co-curated and organised contemporary art exhibitions and art events in London and in Athens.</p>
+  <p>Thank you for your interest.</p>
+  <p>Athanasios</p>
   <p class="about-me__connect"><a href="https://www.linkedin.com/in/athanasios-anagnostopoulos-334a78107/" target="_blank" rel="noopener" aria-label="Let's connect on LinkedIn (opens in new tab)">Let's connect <svg class="icon-linkedin" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" aria-hidden="true" focusable="false"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc. --><path fill="currentColor" d="M416 32L31.9 32C14.3 32 0 46.5 0 64.3L0 447.7C0 465.5 14.3 480 31.9 480L416 480c17.6 0 32-14.5 32-32.3l0-383.4C448 46.5 433.6 32 416 32zM135.4 416l-66.4 0 0-213.8 66.5 0 0 213.8-.1 0zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77zM384.3 416l-66.4 0 0-104c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9l0 105.8-66.4 0 0-213.8 63.7 0 0 29.2 .9 0c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9l0 117.2z"/></svg></a></p>
 </section>
 
