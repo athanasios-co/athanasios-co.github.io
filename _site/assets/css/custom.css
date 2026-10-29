@@ -1677,7 +1677,7 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
   letter-spacing: -0.01em;
   margin: 0 0 var(--space-sm);
 }
-.about-me p { font-family: var(--font-accent); font-size: calc(1rem - 2px); line-height: 1.55; margin: 0 0 var(--space-sm); }
+.about-me p { font-family: var(--font-accent); font-size: calc(1rem - 2px); line-height: 1.55; margin: 0 0 var(--space-md); }
 .about-me .social-linkedin { margin-left: -6px; width: 40px; height: 40px; }   /* icon lines up with the text edge */
 .about-me .social-linkedin .icon-linkedin { width: 24px; height: 24px; }
 @media (max-width: 600px) {
@@ -1687,11 +1687,15 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
 }
 
 /* "Let's connect" + LinkedIn icon at the end of ".a bit about me" */
-.about-me p.about-me__connect { font-size: 1rem; }   /* keeps its earlier size (not reduced with the bio) */
 .about-me__connect a { display: inline-flex; align-items: center; gap: 8px; color: var(--color-text); font-weight: 600; }
 .about-me__connect a:hover { color: #0a66c2; opacity: 1; }
 .about-me__connect .icon-linkedin { width: 24px; height: 24px; color: #0a66c2; }
-@media (max-width: 600px) { .about-me p.about-me__connect { font-size: .95rem; } }
 /* sign-off: bold, right-aligned */
 .about-me p.about-me__sign { font-weight: 600; text-align: right; }
 .about-me p.about-me__sign + p.about-me__sign { margin-top: calc(-1 * var(--space-sm) + 2px); }   /* name sits right under the thank-you line */
+/* more air: after the title, between paragraphs (above), before the sign-off and before "Let's connect" */
+.about-me .about-me__title { margin-bottom: var(--space-lg); }
+.about-me p:not(.about-me__sign) + p.about-me__sign { margin-top: var(--space-lg); }
+.about-me p.about-me__sign + p.about-me__sign { margin-top: calc(-1 * var(--space-md) + 2px); }
+.about-me p.about-me__connect { margin-top: calc(-1 * var(--space-md) + 6px); text-align: right; }   /* right under the name, same size as the text */
+.about-me p:not(.about-me__sign) + p.about-me__sign { font-weight: 400; }   /* thank-you line normal; the name stays bold */
