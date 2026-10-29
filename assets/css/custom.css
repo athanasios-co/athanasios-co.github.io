@@ -1655,3 +1655,26 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
   .js-motion .features.is-drawn .icon-wrap:nth-child(2) .heroicon path { animation-delay: .3s; }
   .js-motion .features.is-drawn .icon-wrap:nth-child(3) .heroicon path { animation-delay: .6s; }
 }
+
+/* ".a bit about me" (homepage): same look as the menu group — small bold title, plain text, LinkedIn icon */
+.about-me {
+  max-width: 62ch;
+  margin: var(--space-xl) auto 0;
+  padding: 0 5% calc(var(--space-xl) + 44px);   /* + room for the platforms tab that overlaps 44px upward */
+  box-sizing: border-box;
+  text-align: left;
+}
+.about-me__title {
+  font-family: inherit;
+  font-weight: 600;
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  margin: 0 0 var(--space-sm);
+}
+.about-me p { font-size: .95rem; line-height: 1.55; margin: 0 0 var(--space-sm); }
+.about-me .social-linkedin { margin-left: -9px; }   /* icon lines up with the text edge */
+@media (max-width: 600px) {
+  .about-me { padding-bottom: calc(var(--space-lg) + 82px); }   /* platforms tab overlaps 82px on phones */
+  .about-me p { font-size: .9rem; }
+}
