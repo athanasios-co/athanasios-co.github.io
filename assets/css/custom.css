@@ -1306,7 +1306,7 @@ body::before {
 .client-tile__name {
   font-family: var(--font-accent);
   font-weight: 500;
-  font-size: clamp(calc(.86rem + 2px), calc(.71rem + .53vw + 2px), calc(1.2rem + 2px));   /* +2px */
+  font-size: clamp(calc(.86rem + 4px), calc(.71rem + .53vw + 4px), calc(1.2rem + 4px));   /* +4px */
   line-height: 1.25;
   overflow-wrap: break-word;
 }
@@ -1371,7 +1371,7 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
   .client-grid { --tab-pad-y: calc(var(--space-sm) + 16px); --tab-pad-x: calc(var(--space-sm) + 5%); }   /* +5% side breathing room */   /* a bit more room above the name */
   .client-grid { width: 85.5%; margin-inline: auto; }   /* cards narrower on phones */
   /* larger text on phones */
-  .client-tile__name { font-size: calc(1.15rem + 2px); }
+  .client-tile__name { font-size: calc(1.15rem + 4px); }
   .client-tile__desc { font-size: .95rem; margin-top: calc(var(--space-sm) + 8px); }   /* more room under the name */
   .client-tile__meta { font-size: .72rem; }
   .client-tile__name { white-space: normal; }
