@@ -1699,3 +1699,9 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
 .about-me p.about-me__sign + p.about-me__sign { margin-top: calc(-1 * var(--space-md) + 2px); }
 .about-me p.about-me__connect { margin-top: 0; text-align: right; }   /* below the name with a little air, same size as the text */
 .about-me p:not(.about-me__sign) + p.about-me__sign { font-weight: 400; }   /* thank-you line normal; the name stays bold */
+/* "Worked in" countries: plain text line */
+.about-me p.about-me__places { margin-top: var(--space-lg); }
+.about-me__places strong { font-weight: 600; }
+.about-me__places + p.about-me__sign { margin-top: var(--space-lg); }
+.about-me p.about-me__sign { font-weight: 400; }                          /* thank-you line: normal */
+.about-me p.about-me__sign + p.about-me__sign { font-weight: 600; }      /* name: bold */
