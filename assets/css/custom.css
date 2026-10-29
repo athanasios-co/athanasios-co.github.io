@@ -1468,7 +1468,7 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
 /* ".clients" heading in the menu: blue, links down to the clients section */
 .custom-nav a.title--link { color: var(--color-accent); text-decoration: none; }
 .custom-nav a.title--link:hover { color: var(--accent-hover); }
-#clients { scroll-margin-top: var(--space-lg); }
+#clients, #ai-seo, #strategic-growth { scroll-margin-top: var(--space-lg); }
 /* desktop: client links in the menu 2px smaller */
 @media (min-width: 721px){
   .custom-nav .items a { font-size: calc(clamp(0.95rem, 1vw, 1.1rem) - 2px); }
@@ -1655,3 +1655,6 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
   .js-motion .features.is-drawn .icon-wrap:nth-child(2) .heroicon path { animation-delay: .3s; }
   .js-motion .features.is-drawn .icon-wrap:nth-child(3) .heroicon path { animation-delay: .6s; }
 }
+
+/* Smooth scrolling for in-page links (bubbles, menu); off for "reduce motion" users */
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }

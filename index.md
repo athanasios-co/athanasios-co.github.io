@@ -7,8 +7,8 @@ title: Digital Marketing Strategy
 <div class="measure blobbed blob-center style-brick ivory hero-blob">
   <h1 class="blurb">athanasios.co</h1>
   <p class="hero-services">
-    <a href="#clients">Online Strategy</a>
-    <a href="#clients">Optimisation SEO | AIEO</a>
+    <a href="#strategic-growth">Online Strategy</a>
+    <a href="#ai-seo">Optimisation SEO | AIEO</a>
     <a href="#clients">Publishing</a>
   </p>
 </div>
@@ -102,7 +102,7 @@ title: Digital Marketing Strategy
 
 <!-- Block 3 -->
 
-<section class="text-block measure blobbed blob--md blob-right blob-fit">
+<section class="text-block measure blobbed blob--md blob-right blob-fit" id="ai-seo">
 
   <h3>AI tools and SEO</h3>
   <p>AI and SEO can jointly amplify your unique message. Correct use of AI tools brings brilliant results.</p>
@@ -112,7 +112,7 @@ title: Digital Marketing Strategy
         style="--screen-w:360px; --screen-h:220px; --screen-top:-70px; --screen-left:68%;"></i>
 </section>
 
-  <section class="strategy-focus">
+  <section class="strategy-focus" id="strategic-growth">
   <div class="icon-wrap">
     <svg xmlns="http://www.w3.org/2000/svg" fill="none"
          viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
