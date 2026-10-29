@@ -1664,12 +1664,11 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
 .about-me {
   max-width: 62ch;
   margin: 64px auto calc(var(--space-xl) + 44px);   /* top = 40px below the blob above (it overhangs 24px); bottom + room for the platforms tab that overlaps 44px upward */
-  padding: 0 0 0 var(--space-md);
-  border-left: 4px solid #E3120B;   /* same red line as the client tabs */
+  padding: 0;
   box-sizing: border-box;
   text-align: left;
 }
-.about-me.measure { padding-inline: var(--space-md) 0; }   /* overrides the general 5% side padding: text sits close to the red line */
+.about-me.measure { padding-inline: 0; }   /* overrides the general 5% side padding */
 .about-me__title {
   font-family: var(--font-accent);   /* same serif as the other section titles */
   font-weight: 600;
@@ -1678,15 +1677,17 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
   letter-spacing: -0.01em;
   margin: 0 0 var(--space-sm);
 }
-.about-me p { font-family: var(--font-accent); font-size: 1rem; line-height: 1.55; margin: 0 0 var(--space-sm); }
+.about-me p { font-family: var(--font-accent); font-size: calc(1rem - 2px); line-height: 1.55; margin: 0 0 var(--space-sm); }
 .about-me .social-linkedin { margin-left: -6px; width: 40px; height: 40px; }   /* icon lines up with the text edge */
 .about-me .social-linkedin .icon-linkedin { width: 24px; height: 24px; }
 @media (max-width: 600px) {
   .about-me { width: auto; margin: 64px 5% calc(var(--space-lg) + 82px); }   /* platforms tab overlaps 82px on phones */   /* platforms tab overlaps 82px on phones */
-  .about-me p { font-size: .95rem; }
+  .about-me p { font-size: calc(.95rem - 2px); }
 }
 
 /* "Let's connect" + LinkedIn icon at the end of ".a bit about me" */
+.about-me p.about-me__connect { font-size: 1rem; }   /* keeps its earlier size (not reduced with the bio) */
 .about-me__connect a { display: inline-flex; align-items: center; gap: 8px; color: var(--color-text); font-weight: 600; }
 .about-me__connect a:hover { color: #0a66c2; opacity: 1; }
 .about-me__connect .icon-linkedin { width: 24px; height: 24px; color: #0a66c2; }
+@media (max-width: 600px) { .about-me p.about-me__connect { font-size: .95rem; } }
