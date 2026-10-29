@@ -1583,9 +1583,9 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
 
   /* 6. icon lines draw in an overlapping cascade: each starts when the previous is about a third drawn */
   .js-motion .features .heroicon path { stroke-dasharray: 1; stroke-dashoffset: 1; }
-  .js-motion .features.is-in .heroicon path { animation: m-draw 1.2s cubic-bezier(.2,.6,.4,1) 0s forwards; }
-  .js-motion .features.is-in .icon-wrap:nth-child(2) .heroicon path { animation-delay: .4s; }
-  .js-motion .features.is-in .icon-wrap:nth-child(3) .heroicon path { animation-delay: .8s; }
+  .js-motion .features.is-in .heroicon path { animation: m-draw 1.2s ease .1s forwards; }
+  .js-motion .features.is-in .icon-wrap:nth-child(2) .heroicon path { animation-delay: .5s; }
+  .js-motion .features.is-in .icon-wrap:nth-child(3) .heroicon path { animation-delay: .9s; }
   @keyframes m-draw { to { stroke-dashoffset: 0; } }
 
   /* 7. client tabs are dealt into the stack one by one */
