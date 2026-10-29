@@ -1266,7 +1266,7 @@ body::before {
 }
 .client-phone--1 { left: 3%;  top: 4%;  transform: rotate(-14deg); }
 .client-phone--4 { right: 2%; top: 50%; transform: rotate(17deg); }
-.client-grid { --tab-pad-y: var(--space-lg); --tab-pad-x: var(--space-lg); --tab-overlap: 0px; --sink: 2000px;   /* every tab runs down this far; the band clips them all at its bottom edge */ }
+.client-grid { --tab-pad-y: var(--space-lg); --tab-pad-x: var(--space-lg); --tab-overlap: 0px; --sink: 16px;   /* each tab ends just behind the curved top edge of the tab below it */ --tail: var(--space-xl); }
 /* rows tuck under the next row, like tiers of dividers */
 /* organiser stack: each tab's body continues down behind the tabs below it */
 .client-grid > li { margin-bottom: calc(-1 * var(--sink)); }
@@ -1641,3 +1641,10 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
   white-space: nowrap;
 }
 @media (max-width: 600px) { .client-tile__work > span { font-size: .62rem; } }
+
+/* Last row: tabs still run to the band's bottom edge (clipped there), so no flat cut shows */
+.client-grid > li:last-child,
+.client-grid > li:nth-last-child(2):nth-child(odd) { margin-bottom: calc(-1 * var(--tail)); }
+.client-grid > li:last-child .client-tile,
+.client-grid > li:nth-last-child(2):nth-child(odd) .client-tile { padding-bottom: calc(var(--tail) + var(--space-sm)); }
+@media (max-width: 600px) { .client-grid { --tail: var(--space-lg); } }
