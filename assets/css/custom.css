@@ -1648,3 +1648,10 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
 .client-grid > li:last-child .client-tile,
 .client-grid > li:nth-last-child(2):nth-child(odd) .client-tile { padding-bottom: calc(var(--tail) + var(--space-sm)); }
 @media (max-width: 600px) { .client-grid { --tail: var(--space-lg); } }
+
+/* Icon drawing on phones: whole sequence 1.5s (desktop stays 2s) */
+@media (max-width: 600px) {
+  .js-motion .features.is-in .heroicon path { animation-duration: .5s; animation-delay: 0s; }
+  .js-motion .features.is-in .icon-wrap:nth-child(2) .heroicon path { animation-delay: .5s; }
+  .js-motion .features.is-in .icon-wrap:nth-child(3) .heroicon path { animation-delay: 1s; }
+}
