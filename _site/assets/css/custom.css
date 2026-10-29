@@ -1266,7 +1266,7 @@ body::before {
 }
 .client-phone--1 { left: 3%;  top: 4%;  transform: rotate(-14deg); }
 .client-phone--4 { right: 2%; top: 50%; transform: rotate(17deg); }
-.client-grid { --tab-pad-y: var(--space-lg); --tab-pad-x: var(--space-lg); --tab-overlap: 0px; --sink: 16px;   /* each tab ends just behind the curved top edge of the tab below it */ --tail: var(--space-xl); }
+.client-grid { --tab-pad-y: var(--space-lg); --tab-pad-x: var(--space-lg); --tab-overlap: 0px; --sink: 16px;   /* each tab ends just behind the curved top edge of the tab below it */ }
 /* rows tuck under the next row, like tiers of dividers */
 /* organiser stack: each tab's body continues down behind the tabs below it */
 .client-grid > li { margin-bottom: calc(-1 * var(--sink)); }
@@ -1284,9 +1284,8 @@ body::before {
   /* bottom padding = the part hidden under the next row, so the red strip stays visible */
   padding: var(--tab-pad-y) var(--tab-pad-x) calc(var(--sink) + var(--space-sm)) calc(var(--tab-pad-x) + var(--tab-overlap));
   /* tab shape: rounded top, flat bottom on a baseline */
-  border-radius: 20px 32px 0 0;   /* same shape as the footer tabs */
+  border-radius: 20px 32px 32px 20px;   /* bottom corners rounded like the top */
   border: 1px solid rgba(255,255,255,.7);   /* glass edge, no red */
-  border-bottom: none;
   /* glass: clearer body + diagonal sheen + bright edges */
   background:
     linear-gradient(125deg, rgba(255,255,255,.55) 0%, rgba(255,255,255,.14) 38%, rgba(255,255,255,.06) 62%, rgba(255,255,255,.22) 100%),
@@ -1642,12 +1641,9 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
 }
 @media (max-width: 600px) { .client-tile__work > span { font-size: .62rem; } }
 
-/* Last row: tabs still run to the band's bottom edge (clipped there), so no flat cut shows */
+/* Last row: no card below it, so its rounded bottom shows fully */
 .client-grid > li:last-child,
-.client-grid > li:nth-last-child(2):nth-child(odd) { margin-bottom: calc(-1 * var(--tail)); }
-.client-grid > li:last-child .client-tile,
-.client-grid > li:nth-last-child(2):nth-child(odd) .client-tile { padding-bottom: calc(var(--tail) + var(--space-sm)); }
-@media (max-width: 600px) { .client-grid { --tail: var(--space-lg); } }
+.client-grid > li:nth-last-child(2):nth-child(odd) { margin-bottom: 0; }
 
 /* Icon drawing on phones: whole sequence 1.5s (desktop stays 2s) */
 @media (max-width: 600px) {
