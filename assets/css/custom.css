@@ -1284,7 +1284,7 @@ body::before {
   /* bottom padding = the part hidden under the next row, so the red strip stays visible */
   padding: var(--tab-pad-y) var(--tab-pad-x) calc(var(--sink) + var(--space-sm)) calc(var(--tab-pad-x) + var(--tab-overlap));
   /* tab shape: rounded top, flat bottom on a baseline */
-  border-radius: 20px 32px 32px 20px;   /* bottom corners rounded like the top */
+  border-radius: 32px;   /* all four corners the same (the rounder right-side value) */
   border: 1px solid rgba(255,255,255,.7);   /* glass edge, no red */
   /* glass: clearer body + diagonal sheen + bright edges */
   background:
