@@ -1305,7 +1305,7 @@ body::before {
 .client-tile__name {
   font-family: var(--font-accent);
   font-weight: 500;
-  font-size: clamp(calc(.86rem + 4px), calc(.71rem + .53vw + 4px), calc(1.2rem + 4px));   /* +4px */
+  font-size: clamp(calc(.86rem + 6px), calc(.71rem + .53vw + 6px), calc(1.2rem + 6px));   /* +6px */
   line-height: 1.25;
   overflow-wrap: break-word;
 }
@@ -1370,7 +1370,7 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
   .client-grid { --tab-pad-y: calc(var(--space-sm) + 16px); --tab-pad-x: calc(var(--space-sm) + 5%); }   /* +5% side breathing room */   /* a bit more room above the name */
   .client-grid { width: 85.5%; margin-inline: auto; }   /* cards narrower on phones */
   /* larger text on phones */
-  .client-tile__name { font-size: calc(1.15rem + 5px); }
+  .client-tile__name { font-size: calc(1.15rem + 6px); }
   .client-tile__desc { font-size: .95rem; margin-top: calc(var(--space-sm) + 8px); }   /* more room under the name */
   .client-tile__meta { font-size: .72rem; }
   .client-tile__name { white-space: normal; }
@@ -1628,7 +1628,7 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
   flex: 0 1 auto;
 }
 .client-tile__work > span {
-  font: 500 calc(.5rem + 1px)/1 "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font: 500 calc(.5rem + 2px)/1 "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
   padding: 4px 8px;
   border: 1px solid var(--blob-frost-border);
   border-radius: 8px;
@@ -1637,7 +1637,7 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
   color: var(--color-text);
   white-space: nowrap;
 }
-@media (max-width: 600px) { .client-tile__work > span { font-size: calc(.62rem + 1px); } }
+@media (max-width: 600px) { .client-tile__work > span { font-size: calc(.62rem + 2px); } }
 
 /* Last row: no card below it, so its rounded bottom shows fully */
 .client-grid > li:last-child,
