@@ -1705,7 +1705,7 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
 .about-me__places + p.about-me__sign { margin-top: var(--space-lg); }
 .about-me p.about-me__sign { font-weight: 400; }                          /* thank-you line: normal */
 .about-me p.about-me__sign + p.about-me__sign { font-weight: 600; }      /* name: bold */
-/* bottom: "Worked in", with "Let's connect" right below it, both on the left */
-.about-me__foot { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; margin-top: var(--space-xl); }
+/* bottom: "Worked in", with "Let's connect" right below it, both centred */
+.about-me__foot { display: flex; flex-direction: column; align-items: center; gap: 6px; margin-top: var(--space-xl); }
 .about-me__foot p.about-me__places,
-.about-me__foot p.about-me__connect { margin: 0; text-align: left; }
+.about-me__foot p.about-me__connect { margin: 0; text-align: center; }
