@@ -1663,7 +1663,7 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
 /* ".a bit about me" (homepage): same look as the menu group — small bold title, plain text, LinkedIn icon */
 .about-me {
   max-width: 62ch;
-  margin: 64px auto calc(var(--space-xl) + 44px);   /* top = 40px below the blob above (it overhangs 24px); bottom + room for the platforms tab that overlaps 44px upward */
+  margin: calc(64px + var(--space-lg)) auto calc(var(--space-xl) + 44px);   /* top = 40px below the blob above (it overhangs 24px); bottom + room for the platforms tab that overlaps 44px upward */
   padding: 0;
   box-sizing: border-box;
   text-align: left;
@@ -1681,7 +1681,7 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
 .about-me .social-linkedin { margin-left: -6px; width: 40px; height: 40px; }   /* icon lines up with the text edge */
 .about-me .social-linkedin .icon-linkedin { width: 24px; height: 24px; }
 @media (max-width: 600px) {
-  .about-me { width: auto; margin: 64px 5% calc(var(--space-lg) + 82px); }   /* platforms tab overlaps 82px on phones */
+  .about-me { width: auto; margin: calc(64px + var(--space-lg)) 5% calc(var(--space-lg) + 82px); }   /* platforms tab overlaps 82px on phones */
   .about-me p { font-size: calc(.95rem - 2px); }
   .about-me.measure { padding-inline: var(--space-md); }
 }
@@ -1697,5 +1697,5 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
 .about-me .about-me__title { margin-bottom: var(--space-lg); }
 .about-me p:not(.about-me__sign) + p.about-me__sign { margin-top: var(--space-lg); }
 .about-me p.about-me__sign + p.about-me__sign { margin-top: calc(-1 * var(--space-md) + 2px); }
-.about-me p.about-me__connect { margin-top: calc(-1 * var(--space-md) + 6px); text-align: right; }   /* right under the name, same size as the text */
+.about-me p.about-me__connect { margin-top: 0; text-align: right; }   /* below the name with a little air, same size as the text */
 .about-me p:not(.about-me__sign) + p.about-me__sign { font-weight: 400; }   /* thank-you line normal; the name stays bold */
