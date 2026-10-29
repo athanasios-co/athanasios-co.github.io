@@ -4,6 +4,42 @@
   var root = document.documentElement;
   if (!root.classList.contains('js-motion')) return;
 
+  /* Smooth, quick scroll for same-page links (#section, #client-…) */
+  function targetY(el) {
+    var y = el.getBoundingClientRect().top + window.scrollY;
+    if (el.id.indexOf('client-') === 0) {            /* centre a client card on its visible part */
+      var last = el.querySelector('.client-tile') && el.querySelector('.client-tile').lastElementChild;
+      if (last) {
+        var bottom = last.getBoundingClientRect().bottom + window.scrollY + 16;
+        return Math.max(0, (y + bottom) / 2 - window.innerHeight / 2);
+      }
+    }
+    return Math.max(0, y - (parseFloat(getComputedStyle(el).scrollMarginTop) || 0));
+  }
+  document.addEventListener('click', function (ev) {
+    var a = ev.target.closest && ev.target.closest('a[href*="#"]');
+    if (!a || ev.defaultPrevented || ev.button !== 0 || ev.metaKey || ev.ctrlKey || ev.shiftKey) return;
+    var url = new URL(a.href, location.href);
+    if (url.pathname !== location.pathname || !url.hash) return;
+    var el = document.getElementById(decodeURIComponent(url.hash.slice(1)));
+    if (!el) return;
+    ev.preventDefault();
+    var from = window.scrollY, to = targetY(el), dist = to - from;
+    var dur = Math.min(650, 300 + Math.abs(dist) * 0.12), t0 = null;   /* 0.3–0.65s depending on distance */
+    function step(t) {
+      if (t0 === null) t0 = t;
+      var p = Math.min(1, (t - t0) / dur);
+      var e = p < .5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2;
+      window.scrollTo(0, from + dist * e);
+      if (p < 1) { requestAnimationFrame(step); return; }
+      if (location.hash !== url.hash) {               /* update the address (keeps the card highlight) without a jump */
+        location.hash = url.hash;
+        window.scrollTo(0, to);
+      }
+    }
+    requestAnimationFrame(step);
+  });
+
   /* 6. icons draw: normalise each path length to 1 so CSS can draw it */
   document.querySelectorAll('.features .heroicon path').forEach(function (p) {
     p.setAttribute('pathLength', '1');

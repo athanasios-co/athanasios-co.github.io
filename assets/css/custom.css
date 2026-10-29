@@ -836,7 +836,7 @@ html.menu-open .menu-toggle {
 .menu-foot .socials{ display:flex; gap:10px; justify-content:center; margin-top:8px; }
 .social-linkedin{ display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 999px; color: #0a66c2; text-decoration: none; }
 .social-linkedin:hover{ color:#004182; }
-.social-linkedin .fa-brands{ font-size: 18px; line-height: 1; }
+.social-linkedin .icon-linkedin{ width: 18px; height: 18px; display: block; }   /* inline SVG (no Font Awesome download) */
 .sr-only{ position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 
 
@@ -1655,6 +1655,3 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
   .js-motion .features.is-drawn .icon-wrap:nth-child(2) .heroicon path { animation-delay: .3s; }
   .js-motion .features.is-drawn .icon-wrap:nth-child(3) .heroicon path { animation-delay: .6s; }
 }
-
-/* Smooth scrolling for in-page links (bubbles, menu); off for "reduce motion" users */
-@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
