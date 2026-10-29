@@ -147,7 +147,7 @@ title: Digital Marketing Strategy
 
 {% include client-tiles.html %}
 
-  <section class="text-block measure blobbed blob--sm blob-right blob-overlap style-frost bleed-host">
+  <section class="text-block measure blobbed blob--sm blob-right blob-overlap style-frost bleed-host before-about">
     <div class="blurb">
       <h4>Are you looking to determine your goals and KPIs?</h4>
       </div>
@@ -160,7 +160,7 @@ title: Digital Marketing Strategy
 <hr class="hr-shadow">
 
 
-  <div class="text-block measure  blobbed blob--lg style-brick ivory">
+  <div class="text-block measure  blobbed blob--lg style-brick ivory blob-fit">
     <i class="blob-extra" aria-hidden="true" style="--blob3-w:280px; --blob3-h:200px; --blob3-left:65%; --blob3-top:-30px;"></i>
 <h3>Together we can define your goals.</h3>
 <p>We can tailor your online presence to fit your mission's narrative
