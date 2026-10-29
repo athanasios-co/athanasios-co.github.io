@@ -1522,7 +1522,7 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
   line-height: 1.35;
   text-align: center;
 }
-.hero-services > span {
+.hero-services > a {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1532,16 +1532,22 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
   border-radius: var(--blob-radius);
   background: #f4f3f0;
   box-shadow: 0 6px 16px rgba(0,0,0,.06), inset 0 1px 0 rgba(255,255,255,.9);
+  color: var(--color-text);
+  transition: transform .2s ease, color .2s ease;
 }
+/* clickable: jump to the Clients section */
+.hero-services > a:hover,
+.hero-services > a:focus-visible { color: var(--color-accent); opacity: 1; transform: translateY(-2px); }
+@media (prefers-reduced-motion: reduce) { .hero-services > a:hover, .hero-services > a:focus-visible { transform: none; } }
 @media (min-width: 601px){
-  .hero-services > span { white-space: nowrap; }   /* desktop: each tab stays on one line */
+  .hero-services > a { white-space: nowrap; }   /* desktop: each tab stays on one line */
   .hero-services .hs-break { margin-left: .3em; }
 }
 @media (max-width: 600px){
   .hero-services { font-size: calc(.66rem + 1px); gap: 6px; }
-  .hero-services > span { flex-direction: column; }
+  .hero-services > a { flex-direction: column; }
   .hero-services .hs-break { margin-left: 0; }   /* "• SEO | AIEO" on its own line on phones */
-  .hero-services > span { padding: 7px 10px 8px; border-radius: 12px; }
+  .hero-services > a { padding: 7px 10px 8px; border-radius: 12px; }
 }
 
 /* =========================================================
