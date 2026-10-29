@@ -15,7 +15,7 @@
   });
 
   /* Entrances (3, 5, 6, 7, 9): add .is-in once, then stop watching */
-  var targets = document.querySelectorAll('.cta, .client-grid');
+  var targets = document.querySelectorAll('.cta, .features, .client-grid');
   var reveal = function (el) { el.classList.add('is-in'); };
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (entries) {
@@ -24,18 +24,16 @@
       });
     }, { rootMargin: '0px 0px -8% 0px', threshold: 0 });
     targets.forEach(function (el) { io.observe(el); });
-    /* icon cards wait until the whole row is on screen, so the drawing is seen from the start */
-    var ioCards = new IntersectionObserver(function (entries) {
+    /* cards appear early (above); the icon drawing starts once the first card is fully on screen */
+    var ioDraw = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
-        /* need 85% of the row visible, or as much as fits on a short phone screen */
-        var need = Math.min(0.85, (window.innerHeight * 0.7) / e.boundingClientRect.height);
-        if (e.isIntersecting && e.intersectionRatio >= need) { reveal(e.target); ioCards.unobserve(e.target); }
+        if (e.isIntersecting) { e.target.parentElement.classList.add('is-drawn'); ioDraw.unobserve(e.target); }
       });
-    }, { threshold: [0, .1, .2, .3, .4, .5, .6, .7, .8, .85, .9, 1] });
-    document.querySelectorAll('.features').forEach(function (el) { ioCards.observe(el); });
+    }, { threshold: 1 });
+    document.querySelectorAll('.features > .icon-wrap:first-child').forEach(function (el) { ioDraw.observe(el); });
   } else {
     targets.forEach(reveal);
-    document.querySelectorAll('.features').forEach(reveal);
+    document.querySelectorAll('.features').forEach(function (el) { el.classList.add('is-drawn'); });
   }
 
   /* 4. blob drift: small scroll-linked offset */
