@@ -177,7 +177,7 @@ and leverage the force of AI to your benefit. Are you interested?</p>
 <section class="about-me measure" id="about" aria-labelledby="about-title">
   <h3 class="about-me__title" id="about-title">.a bit about me</h3>
   <p>
-  I consult my clients on publishing, online insights, impact and strategy.</p>
+  I work with NGOs, cultural organisations and publishers internationally on publishing, online insights, impact and strategy.</p>
   <p>I am a publishing editor, writer and researcher in the areas of cultural studies, psychoanalysis, art and politics. My passion is to promote collaboration and encourage constructive exchange across sectors, fields of knowledge and cultures.</p>
   <p>For over a decade, I have worked for advocacy NGOs in the legal sector and for non-profits in the field of cultural and migration policy. I have edited books of non-fiction, poetry, essays, and fine art.</p>
   <p>Previously, I worked for commercial art galleries and have co-curated and organised contemporary art exhibitions and art events in London and in Athens.</p>
