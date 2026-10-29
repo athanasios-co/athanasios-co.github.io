@@ -1668,7 +1668,7 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
   box-sizing: border-box;
   text-align: left;
 }
-.about-me.measure { padding-inline: 0; }   /* overrides the general 5% side padding */
+.about-me.measure { padding-inline: var(--space-xl); }   /* wider side padding (32–56px) */
 .about-me__title {
   font-family: var(--font-accent);   /* same serif as the other section titles */
   font-weight: 600;
@@ -1681,8 +1681,9 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
 .about-me .social-linkedin { margin-left: -6px; width: 40px; height: 40px; }   /* icon lines up with the text edge */
 .about-me .social-linkedin .icon-linkedin { width: 24px; height: 24px; }
 @media (max-width: 600px) {
-  .about-me { width: auto; margin: 64px 5% calc(var(--space-lg) + 82px); }   /* platforms tab overlaps 82px on phones */   /* platforms tab overlaps 82px on phones */
+  .about-me { width: auto; margin: 64px 5% calc(var(--space-lg) + 82px); }   /* platforms tab overlaps 82px on phones */
   .about-me p { font-size: calc(.95rem - 2px); }
+  .about-me.measure { padding-inline: var(--space-md); }
 }
 
 /* "Let's connect" + LinkedIn icon at the end of ".a bit about me" */
@@ -1691,3 +1692,6 @@ a.client-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 
 .about-me__connect a:hover { color: #0a66c2; opacity: 1; }
 .about-me__connect .icon-linkedin { width: 24px; height: 24px; color: #0a66c2; }
 @media (max-width: 600px) { .about-me p.about-me__connect { font-size: .95rem; } }
+/* sign-off: bold, right-aligned */
+.about-me p.about-me__sign { font-weight: 600; text-align: right; }
+.about-me p.about-me__sign + p.about-me__sign { margin-top: calc(-1 * var(--space-sm) + 2px); }   /* name sits right under the thank-you line */
