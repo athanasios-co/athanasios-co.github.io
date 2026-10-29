@@ -38,13 +38,13 @@
   aria: "Futura Books Dr. Diana Manesi, Athens (opens in new tab)"
   tag: "Publishing · Athens, Greece"
   description: "Auto-ethnographic book based on Dr. Diana Manesi's anthropological research, published by Futura Books Athens."
-  work: ["Content", "Publishing", "Research", "Writing"]
+  work: ["Publishing", "Research", "Writing"]
 - name: "Nefeli Publishing & FYTA"
   url: "https://www.athanasios.co/the-black-book-of-fyta.html"
   aria: "The Black Book of FYTA, Nefeli Publishing, athanasios.co (opens in new tab)"
   tag: "Book on cultural studies, epistemology, art · FYTA, Nefeli Publishing & Buckinghamshire New University · Greece, UK"
   description: "Collection of texts on cultural studies, epistemological critique, art theory, artworks."
-  work: ["Content", "Publishing", "Research", "Writing"]
+  work: ["Publishing", "Research", "Writing"]
 - name: "Documena Art Politics"
   url: "https://documena.weebly.com/"
   aria: "Documena Art Politics (opens in new tab)"
