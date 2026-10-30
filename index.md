@@ -178,9 +178,9 @@ and leverage the force of AI to your benefit. Are you interested?</p>
   <h3 class="about-me__title" id="about-title">.a bit about me</h3>
   <p>
   I work with NGOs, cultural organisations and publishers internationally on online and print publishing, online insights, impact and strategy.</p>
-  <p>For over a decade, I have worked for advocacy NGOs in the legal sector and for non-profits in the fields of culture, education, human rights and policy. I have collaborated with art curators, academics, writers, and artists in editing and publishing books of non-fiction, essays, fine art and poetry. Previously, I worked for commercial art galleries and have co-curated and organised contemporary art exhibitions and art events.</p>
   <p>I am a publishing editor, writer and researcher in the areas of cultural studies, politics, art and psychoanalysis. My passion is to promote collaboration and encourage constructive exchange across sectors, fields of knowledge and cultures.</p>
-  <p class="about-me__sign">Thank you for reading and for your interest.</p>
+  <p>For over a decade, I have worked for advocacy NGOs in the legal sector and for non-profits in the fields of culture, education, human rights and policy. I have collaborated with art curators, academics, writers, and artists in editing and publishing books of non-fiction, essays, fine art and poetry. Previously, I worked for commercial art galleries and have co-curated and organised contemporary art exhibitions and art events.</p>
+  <p class="about-me__sign">Thank you for reading thus far, I appreciate your interest.</p>
   <p class="about-me__sign">Athanasios</p>
   <div class="about-me__foot">
   <p class="about-me__places"><strong>Worked in:</strong> UK · Ireland · Greece · Germany · Pakistan · UAE</p>
